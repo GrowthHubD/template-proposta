@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 9%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 256 63% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --primary-glow: 256 63% 70%;
+    --primary-dim: 256 40% 40%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 256 63% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 256 63% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 256 63% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 256 63% 60%;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(ellipse at center, hsl(256 40% 15%) 0%, hsl(0 0% 9%) 70%);
+    --gradient-green: linear-gradient(135deg, hsl(256 63% 60%), hsl(256 63% 70%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 11%), hsl(0 0% 13%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(256 63% 40% / 0.3) 0%, transparent 70%);
+
+    /* Shadows */
+    --shadow-green: 0 0 30px hsl(256 63% 60% / 0.3);
+    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-green {
+    background: var(--gradient-green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-primary {
+    background: var(--gradient-green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-green {
+    box-shadow: var(--shadow-green);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-green);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .border-green {
+    border-color: hsl(var(--primary) / 0.4);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 20px hsl(256 63% 60% / 0.6), 0 0 40px hsl(256 63% 60% / 0.4), 0 0 60px hsl(256 63% 60% / 0.2);
+  }
+
+  .text-glow-primary-soft {
+    text-shadow: 0 0 10px hsl(256 63% 60% / 0.5), 0 0 20px hsl(256 63% 60% / 0.3);
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-reverse-fast {
+  animation: marquee-reverse 40s linear infinite;
+}
+
+/* Scroll indicator bounce */
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-bounce-down {
+  animation: bounce-down 1.5s ease-in-out infinite;
+}
+
+/* Fade in up animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(256 63% 60% / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(256 63% 60% / 0.6); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Message bubble animation */
+@keyframes message-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-message {
+  animation: message-appear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+/* Typing indicator */
+@keyframes typing-indicator {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  5% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  95% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.animate-typing-indicator {
+  animation: typing-indicator 1.2s ease-in-out forwards;
+  opacity: 0;
+}
+
+/* Typing dots animation */
+@keyframes typing-dot {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+.animate-typing-dot {
+  animation: typing-dot 1.2s ease-in-out infinite;
+}
