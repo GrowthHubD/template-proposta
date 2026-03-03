@@ -92,7 +92,7 @@ export const PrecosSection = () => {
             <div className="mb-6">
               <div className="bg-background/40 rounded-xl border border-border p-4">
                 <div className="text-3xl sm:text-4xl font-heading font-bold text-foreground">
-                  R$ 1.500
+                  R$ 2.000
                   <span className="text-xs sm:text-sm font-normal text-muted-foreground">/mês</span>
                 </div>
                 <div className="text-xs text-muted-foreground mt-1 mb-3">Mensalidade Fixa</div>
