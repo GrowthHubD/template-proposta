@@ -12,22 +12,22 @@ const steps = [
   {
     step: 1,
     title: "Onboarding & Análise",
-    description: "Mapeamento de processos, definição de fluxos e personalização dos agentes.",
+    description: "Mapeamento de processos, definição de listas de leads e personalização dos agentes.",
   },
   {
     step: 2,
     title: "Configuração dos Agentes",
-    description: "Treinamento das IAs, integração com sistemas e base de conhecimento.",
+    description: "Setup do disparo, aquecedor de chip e pré-atendimento. Integração com WhatsApp.",
   },
   {
     step: 3,
     title: "Testes & Validação",
-    description: "Testes com casos reais, ajustes finos e validação com sua equipe.",
+    description: "Testes com disparos reais, validação do aquecimento e ajustes no pré-atendimento.",
   },
   {
     step: 4,
     title: "Go Live & Monitoramento",
-    description: "Ativação dos agentes e acompanhamento contínuo de performance.",
+    description: "Ativação dos três agentes e acompanhamento contínuo de performance.",
   },
 ];
 
@@ -42,7 +42,7 @@ export const JornadaSection = () => {
           Jornada de <span className="text-primary">Implementação</span>
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-          Um caminho claro e validado para transformar sua operação.
+          Um caminho claro e validado — tudo pronto em até 25 dias úteis.
         </p>
       </div>
 

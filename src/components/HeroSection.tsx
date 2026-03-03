@@ -49,7 +49,7 @@ export const HeroSection = () => {
             </span>
             <span className="hidden sm:block w-px h-4 bg-primary/40" />
             <span className="text-xs sm:text-sm font-medium text-foreground">
-              Agentes de IA para Vendas
+              Automação Inteligente via WhatsApp
             </span>
           </div>
         </div>

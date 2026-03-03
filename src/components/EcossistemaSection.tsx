@@ -1,9 +1,9 @@
 import {
   Bot,
-  Users,
+  Send,
   MessageSquare,
   Target,
-  Headphones,
+  Flame,
   Zap,
   BarChart3,
   Shield,
@@ -12,49 +12,49 @@ import {
 
 const services = [
   {
-    icon: Target,
-    title: "Agente de Captação",
-    desc: "IA especializada em prospecção e qualificação de leads. Identifica oportunidades, inicia conversas e agenda reuniões automaticamente.",
+    icon: Send,
+    title: "Agente de Disparo",
+    desc: "Disparo automatizado de mensagens para listas de leads via WhatsApp. Opera com API oficial ou não oficial, conforme estratégia ideal para seu cenário.",
   },
   {
-    icon: Headphones,
-    title: "Agente de Atendimento",
-    desc: "IA que resolve dúvidas, fornece informações e oferece suporte 24/7. Atende múltiplos clientes simultaneamente com qualidade consistente.",
-  },
-  {
-    icon: Users,
-    title: "Qualificação Inteligente",
-    desc: "Análise automática de perfil do cliente, identificação de necessidades e encaminhamento para o time certo no momento ideal.",
+    icon: Flame,
+    title: "Aquecedor de Chip",
+    desc: "Mantém seus números saudáveis e ativos. Simula interações naturais para evitar banimentos e garantir alta entregabilidade das mensagens.",
   },
   {
     icon: MessageSquare,
-    title: "Conversas Naturais",
-    desc: "Interações humanizadas via WhatsApp, chat ou telefone. Os agentes entendem contexto e mantêm conversas fluidas e profissionais.",
+    title: "Agente de Pré-Atendimento",
+    desc: "IA que responde automaticamente aos leads que interagem com os disparos. Qualifica, tira dúvidas e encaminha para o time comercial no momento certo.",
+  },
+  {
+    icon: Target,
+    title: "Até 250 Leads/Dia",
+    desc: "Capacidade de disparo de até 250 leads por dia por número, garantindo volume consistente sem comprometer a saúde do chip.",
   },
   {
     icon: Clock,
-    title: "Disponibilidade 24/7",
-    desc: "Seus agentes trabalham sem parar. Capte leads e atenda clientes a qualquer hora, sem custos de horas extras ou folgas.",
+    title: "Operação 24/7",
+    desc: "Seus agentes trabalham sem parar. Dispare, aqueça e pré-atenda leads a qualquer hora, inclusive fora do horário comercial.",
   },
   {
     icon: BarChart3,
     title: "Métricas em Tempo Real",
-    desc: "Dashboards com performance de cada agente: leads captados, conversões, tempo de resposta e satisfação do cliente.",
+    desc: "Acompanhe disparos realizados, taxas de resposta, leads qualificados e performance de cada agente em dashboards claros.",
   },
   {
     icon: Zap,
-    title: "Integração Completa",
-    desc: "Conecta com seu CRM, WhatsApp Business, sistema de vendas e outras ferramentas. Tudo sincronizado automaticamente.",
+    title: "API Oficial ou Não Oficial",
+    desc: "Flexibilidade para operar com a API oficial do WhatsApp Business ou via conexão não oficial, de acordo com sua necessidade e estratégia.",
   },
   {
     icon: Shield,
-    title: "Segurança & Privacidade",
-    desc: "Dados protegidos com criptografia. Conformidade com LGPD e protocolos de segurança para garantir a integridade das informações.",
+    title: "Segurança & LGPD",
+    desc: "Dados protegidos com criptografia. Conformidade com LGPD e boas práticas de privacidade em todas as interações.",
   },
   {
     icon: Bot,
     title: "Aprendizado Contínuo",
-    desc: "Os agentes melhoram com o tempo. Aprendem com cada interação para oferecer respostas cada vez mais precisas e eficientes.",
+    desc: "Os agentes evoluem com cada interação, refinando abordagens e melhorando taxas de resposta e qualificação ao longo do tempo.",
   },
 ];
 
@@ -66,10 +66,10 @@ export const EcossistemaSection = () => {
           Soluções
         </p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
-          Dois Agentes, Resultados Infinitos
+          Três Agentes, Resultado Completo
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-          Solução completa de IA para captar clientes e atender com excelência. Automatize vendas e suporte simultaneamente.
+          Disparo em escala, chip sempre saudável e pré-atendimento inteligente. Tudo automatizado para maximizar seus resultados.
         </p>
       </div>
 

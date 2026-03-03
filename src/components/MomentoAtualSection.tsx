@@ -11,12 +11,12 @@ export const MomentoAtualSection = () => {
           O Momento Atual
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-          Transforme sua operação com inteligência artificial que trabalha 24/7.
+          Automatize prospecção, aquecimento e pré-atendimento com inteligência artificial.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
-        {/* Hipercrescimento */}
+        {/* Oportunidade */}
         <div className="relative rounded-2xl border border-primary/20 bg-gradient-card p-8 group hover:border-primary/40 transition-all duration-300">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-t-2xl" />
           <div className="flex items-center gap-3 mb-6">
@@ -29,9 +29,9 @@ export const MomentoAtualSection = () => {
           </div>
           <ul className="space-y-3">
             {[
-              "Demanda crescente por novos clientes e atendimento de qualidade.",
-              "Necessidade de escalar vendas sem aumentar custos operacionais.",
-              "Oportunidade de automatizar processos repetitivos com IA.",
+              "Disparar mensagens em escala para listas qualificadas via WhatsApp.",
+              "Manter chips aquecidos e saudáveis para evitar banimentos.",
+              "Pré-atender leads automaticamente antes do contato humano.",
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
@@ -41,7 +41,7 @@ export const MomentoAtualSection = () => {
           </ul>
         </div>
 
-        {/* O Gargalo */}
+        {/* O Desafio */}
         <div className="relative rounded-2xl border border-primary/20 bg-gradient-card p-8 group hover:border-primary/40 transition-all duration-300">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-t-2xl" />
           <div className="flex items-center gap-3 mb-6">
@@ -54,9 +54,9 @@ export const MomentoAtualSection = () => {
           </div>
           <ul className="space-y-3">
             {[
-              "Equipe de vendas limitada para captar novos clientes em escala.",
-              "Atendimento sobrecarregado com demandas repetitivas.",
-              "Dificuldade em manter qualidade e velocidade simultaneamente.",
+              "Disparo manual consome tempo e gera resultados inconsistentes.",
+              "Chips sem aquecimento adequado são banidos rapidamente.",
+              "Leads esfriam sem um pré-atendimento ágil e automatizado.",
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-destructive flex-shrink-0" />

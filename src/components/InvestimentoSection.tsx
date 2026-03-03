@@ -1,18 +1,18 @@
 import { X, Check } from "lucide-react";
 
 const currentCosts = [
-  "Equipe de vendas e atendimento.",
-  "Custos com horas extras e escala.",
-  "Treinamento e turnover de equipe.",
-  "Pode perder desempenho.",
+  "Disparo manual consome horas da equipe.",
+  "Chips banidos por falta de aquecimento.",
+  "Leads sem pré-atendimento esfriam rápido.",
+  "Resultados inconsistentes e difíceis de escalar.",
 ];
 
 const savingsBenefits = [
-  "Sem pagar hora extra.",
-  "Trabalhando 24/7.",
-  "Sem turnover de equipe.",
-  "Escalável automaticamente.",
-  "Sempre em máxima performance.",
+  "Disparo automatizado para até 250 leads/dia.",
+  "Chips sempre saudáveis e protegidos.",
+  "Pré-atendimento 24/7 sem custo extra.",
+  "Escalável e consistente.",
+  "Resultados mensuráveis em tempo real.",
 ];
 
 export const InvestimentoSection = () => {
@@ -26,7 +26,7 @@ export const InvestimentoSection = () => {
           Não é Custo, é <span className="text-primary">Investimento</span>
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-          Substitua custos fixos altos e ineficientes por uma solução escalável.
+          Substitua processos manuais e ineficientes por automação inteligente com retorno imediato.
         </p>
       </div>
 
@@ -34,13 +34,13 @@ export const InvestimentoSection = () => {
         {/* Custo atual */}
         <div className="rounded-2xl border border-destructive/20 bg-gradient-card p-6 sm:p-8 flex flex-col">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-base sm:text-lg font-heading font-semibold text-foreground">Custo Operacional Atual</h3>
+            <h3 className="text-base sm:text-lg font-heading font-semibold text-foreground">Processo Manual</h3>
             <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">Atual</span>
           </div>
           <div className="text-3xl sm:text-4xl font-heading font-bold text-foreground mb-1">
-            R$ ≈ 35.000
+            Tempo + Risco
           </div>
-          <div className="text-xs text-muted-foreground mb-6">Equipe de Vendas + Atendimento</div>
+          <div className="text-xs text-muted-foreground mb-6">Disparo manual, chips sem proteção</div>
           <ul className="space-y-2 mb-8 flex-grow">
             {currentCosts.map((item, i) => (
               <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
@@ -51,18 +51,17 @@ export const InvestimentoSection = () => {
           </ul>
         </div>
 
-        {/* Economia */}
+        {/* Com automação */}
         <div className="rounded-2xl border border-primary/30 bg-gradient-card p-6 sm:p-8 relative overflow-hidden flex flex-col">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
           <div className="relative flex flex-col flex-grow">
-            <h3 className="text-base sm:text-lg font-heading font-semibold text-foreground mb-2">Economia Mensal</h3>
+            <h3 className="text-base sm:text-lg font-heading font-semibold text-foreground mb-2">Com Automação IA</h3>
             <div className="text-4xl sm:text-5xl font-heading font-bold text-gradient-green mb-1">
-              R$ 28.200
+              R$ 2.000/mês
             </div>
             <p className="text-xs sm:text-sm text-muted-foreground mb-6">
-              Isso representa{" "}
-              <span className="text-primary font-semibold">R$ 338.400 ao ano</span>{" "}
-              a mais no seu caixa.
+              Três agentes trabalhando por você,{" "}
+              <span className="text-primary font-semibold">24 horas por dia</span>.
             </p>
             <ul className="space-y-2 flex-grow">
               {savingsBenefits.map((item, i) => (
