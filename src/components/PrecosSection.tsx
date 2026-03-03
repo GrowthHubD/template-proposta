@@ -1,21 +1,19 @@
 import { Check } from "lucide-react";
 
 const fase1Items = [
-  "Configuração do Agente de Captação",
-  "Configuração do Agente de Atendimento",
+  "Configuração do Agente de Disparo",
+  "Configuração do Aquecedor de Chip",
+  "Configuração do Agente de Pré-Atendimento",
   "Treinamento e personalização dos agentes",
   "Base de conhecimento e documentação",
 ];
 
-const fase2Variavel = [
-  "Infraestrutura de servidor",
-  "Escala automática conforme demanda",
-];
-
-const fase2Fixo = [
+const fase2Items = [
   "Suporte técnico dedicado",
   "Atualizações e melhorias dos agentes",
   "Monitoramento e otimização contínua",
+  "Manutenção do aquecedor de chip",
+  "Até 250 leads/dia por número",
 ];
 
 export const PrecosSection = () => {
@@ -40,12 +38,12 @@ export const PrecosSection = () => {
             Implementação
           </h3>
           <p className="text-sm text-muted-foreground mb-6">
-            Configuração e treinamento dos dois agentes de IA para sua operação.
+            Configuração e treinamento dos três agentes de IA para sua operação.
           </p>
 
           <div className="mb-6">
             <div className="text-3xl sm:text-4xl font-heading font-bold text-foreground">
-              R$ 24.500
+              R$ 5.200
             </div>
             <div className="text-xs text-muted-foreground mt-1">Investimento Único</div>
           </div>
@@ -65,7 +63,7 @@ export const PrecosSection = () => {
               ))}
             </ul>
             <div className="text-xs text-primary bg-primary/10 rounded-lg p-3 border border-primary/20">
-              + Ambos os agentes prontos para uso em até 25 dias úteis.
+              + Todos os agentes prontos para uso em até 25 dias úteis.
             </div>
           </div>
         </div>
@@ -91,29 +89,15 @@ export const PrecosSection = () => {
               Manutenção, atualizações e suporte contínuo dos agentes de IA.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div className="mb-6">
               <div className="bg-background/40 rounded-xl border border-border p-4">
-                <div className="text-xl sm:text-2xl font-heading font-bold text-foreground">
-                  R$ 6.800
+                <div className="text-3xl sm:text-4xl font-heading font-bold text-foreground">
+                  R$ 2.000
                   <span className="text-xs sm:text-sm font-normal text-muted-foreground">/mês</span>
                 </div>
                 <div className="text-xs text-muted-foreground mt-1 mb-3">Mensalidade Fixa</div>
                 <ul className="space-y-1.5">
-                  {fase2Fixo.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <Check className="w-3 h-3 text-primary flex-shrink-0" /> <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-background/40 rounded-xl border border-border p-4">
-                <div className="text-xl sm:text-2xl font-heading font-bold text-foreground">
-                  R$ 0,84
-                  <span className="text-xs sm:text-sm font-normal text-muted-foreground">/atendimento</span>
-                </div>
-                <div className="text-xs text-muted-foreground mt-1 mb-3">Tokens de IA (apenas)</div>
-                <ul className="space-y-1.5 mb-3">
-                  {fase2Variavel.map((item, i) => (
+                  {fase2Items.map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
                       <Check className="w-3 h-3 text-primary flex-shrink-0" /> <span>{item}</span>
                     </li>
@@ -122,36 +106,29 @@ export const PrecosSection = () => {
               </div>
             </div>
 
-            {/* API WhatsApp - Custo Adicional */}
+            {/* API WhatsApp - Opções Estratégicas */}
             <div className="bg-muted/30 rounded-xl border border-border p-4 mb-6">
-              <div className="text-xs font-semibold text-foreground mb-3">API WhatsApp (custo adicional):</div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+              <div className="text-xs font-semibold text-foreground mb-3">API WhatsApp (opção estratégica):</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div className="bg-background/40 rounded-lg p-3 border border-border">
                   <div className="font-semibold text-foreground mb-1">Não Oficial</div>
                   <div className="text-muted-foreground">R$ 100/mês por dispositivo</div>
+                  <div className="text-xs text-muted-foreground/70 mt-1">(mais flexível, ideal para escala)</div>
                 </div>
                 <div className="bg-background/40 rounded-lg p-3 border border-border">
-                  <div className="font-semibold text-foreground mb-1">Oficial - Utilidade</div>
-                  <div className="text-muted-foreground">R$ 0,04-0,05/mensagem</div>
-                  <div className="text-xs text-muted-foreground/70 mt-1">(confirmações, notificações)</div>
+                  <div className="font-semibold text-foreground mb-1">Oficial (WABA)</div>
+                  <div className="text-muted-foreground">R$ 0,04-0,30/mensagem</div>
+                  <div className="text-xs text-muted-foreground/70 mt-1">(maior segurança, selo verificado)</div>
                 </div>
-                <div className="bg-background/40 rounded-lg p-3 border border-border">
-                  <div className="font-semibold text-foreground mb-1">Oficial - Marketing</div>
-                  <div className="text-muted-foreground">R$ 0,30/mensagem</div>
-                  <div className="text-xs text-muted-foreground/70 mt-1">(promoções)</div>
-                </div>
+              </div>
+              <div className="text-xs text-muted-foreground/70 mt-3 italic">
+                *A escolha entre API oficial ou não oficial é definida conforme o cenário e estratégia de cada cliente.
               </div>
             </div>
 
             <div className="space-y-2">
-            </div>
-
-            <div className="space-y-2">
               <div className="text-xs text-muted-foreground bg-muted/50 rounded-lg p-3 border border-border">
-                *Ambos os agentes incluídos no mesmo investimento. Sem custos adicionais por agente.
-              </div>
-              <div className="text-xs text-muted-foreground bg-muted/50 rounded-lg p-3 border border-border">
-                <span className="font-semibold text-foreground">Economia Mensal:</span> Economize até <span className="text-primary font-bold">R$ 20.200/mês</span> comparado ao custo operacional atual. Isso representa <span className="text-primary font-semibold">R$ 242.400 ao ano</span> a mais no seu caixa.
+                *Todos os três agentes incluídos no mesmo investimento. Sem custos adicionais por agente.
               </div>
             </div>
           </div>
