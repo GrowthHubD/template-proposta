@@ -57,7 +57,7 @@ export const InvestimentoSection = () => {
           <div className="relative flex flex-col flex-grow">
             <h3 className="text-base sm:text-lg font-heading font-semibold text-foreground mb-2">Com Automação IA</h3>
             <div className="text-4xl sm:text-5xl font-heading font-bold text-gradient-green mb-1">
-              R$ 1.500/mês
+              R$ 2.000/mês
             </div>
             <p className="text-xs sm:text-sm text-muted-foreground mb-6">
               Três agentes trabalhando por você,{" "}
