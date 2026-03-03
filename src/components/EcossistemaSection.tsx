@@ -39,7 +39,7 @@ const services = [
   {
     icon: BarChart3,
     title: "Métricas em Tempo Real",
-    desc: "Acompanhe disparos realizados, taxas de resposta, leads qualificados e performance de cada agente em dashboards claros.",
+    desc: "Acompanhe disparos realizados, taxas de resposta, leads qualificados e performance de cada agente em dashboards claros pelo Chatwoot.",
   },
   {
     icon: Zap,
