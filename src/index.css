@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -49,14 +49,14 @@
     --sidebar-ring: 256 63% 60%;
 
     /* Gradients */
-    --gradient-hero: radial-gradient(ellipse at center, hsl(256 40% 15%) 0%, hsl(0 0% 9%) 70%);
-    --gradient-green: linear-gradient(135deg, hsl(256 63% 60%), hsl(256 63% 70%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 11%), hsl(0 0% 13%));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(256 63% 40% / 0.3) 0%, transparent 70%);
+    --gradient-hero: radial-gradient(circle at top center, hsl(256 40% 15%) 0%, hsl(0 0% 9%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(256 63% 60%), hsl(280 63% 50%));
+    --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(256 63% 40% / 0.15) 0%, transparent 70%);
 
     /* Shadows */
-    --shadow-green: 0 0 30px hsl(256 63% 60% / 0.3);
-    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.4);
+    --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px hsl(256 63% 60% / 0.2);
   }
 }
 
@@ -77,26 +77,24 @@
 }
 
 @layer utilities {
-  .text-gradient-green {
-    background: var(--gradient-green);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/5 shadow-2xl;
   }
 
   .text-gradient-primary {
-    background: var(--gradient-green);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .glow-green {
-    box-shadow: var(--shadow-green);
-  }
-
   .glow-primary {
-    box-shadow: var(--shadow-green);
+    box-shadow: var(--shadow-glow);
   }
 
   .bg-gradient-hero {
@@ -107,20 +105,12 @@
     background: var(--gradient-card);
   }
 
-  .border-green {
-    border-color: hsl(var(--primary) / 0.4);
-  }
-
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
 
   .text-glow-primary {
-    text-shadow: 0 0 20px hsl(256 63% 60% / 0.6), 0 0 40px hsl(256 63% 60% / 0.4), 0 0 60px hsl(256 63% 60% / 0.2);
-  }
-
-  .text-glow-primary-soft {
-    text-shadow: 0 0 10px hsl(256 63% 60% / 0.5), 0 0 20px hsl(256 63% 60% / 0.3);
+    text-shadow: 0 0 20px hsl(256 63% 60% / 0.4);
   }
 }
 

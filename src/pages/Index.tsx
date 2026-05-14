@@ -1,43 +1,38 @@
-import { HeroSection } from "@/components/HeroSection";
-import { MarqueeTicker } from "@/components/MarqueeTicker";
-import { MomentoAtualSection } from "@/components/MomentoAtualSection";
-import { EcossistemaSection } from "@/components/EcossistemaSection";
-import { FeatureTabsSection } from "@/components/FeatureTabsSection";
-import { JornadaSection } from "@/components/JornadaSection";
-import { InvestimentoSection } from "@/components/InvestimentoSection";
-import { PrecosSection } from "@/components/PrecosSection";
-import { CTASection } from "@/components/CTASection";
+import {
+  HeroSection,
+  MarqueeTicker,
+  MomentoAtualSection,
+  EcossistemaSection,
+  FeatureTabsSection,
+  JornadaSection,
+  InvestimentoSection,
+  PrecosSection,
+  CTASection,
+} from "@/modules/proposta";
+import { proposta } from "@/modules/proposta/data/proposta.config";
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Hero */}
-      <HeroSection />
+      <HeroSection data={proposta.hero} />
 
-      {/* Momento Atual */}
-      <MomentoAtualSection />
+      {proposta.momentoAtual && <MomentoAtualSection data={proposta.momentoAtual} />}
 
-      {/* Marquee */}
-      <MarqueeTicker />
+      <MarqueeTicker data={proposta.marquee} />
 
-      {/* Ecossistema */}
-      <EcossistemaSection />
+      <EcossistemaSection data={proposta.ecossistema} />
 
-      {/* Feature Tabs */}
-      <FeatureTabsSection />
+      <FeatureTabsSection data={proposta.featureTabs} />
 
-      {/* Jornada */}
-      <JornadaSection />
+      <JornadaSection data={proposta.jornada} />
 
-      {/* Investimento */}
-      <MarqueeTicker reverse />
-      <InvestimentoSection />
+      <MarqueeTicker data={proposta.marquee} reverse />
 
-      {/* Preços */}
-      <PrecosSection />
+      {proposta.investimento && <InvestimentoSection data={proposta.investimento} />}
 
-      {/* CTA */}
-      <CTASection />
+      <PrecosSection data={proposta.precos} />
+
+      <CTASection data={proposta.cta} />
     </main>
   );
 };

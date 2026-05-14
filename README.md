@@ -1,73 +1,62 @@
-# Welcome to your Lovable project
+# Template de Proposta Comercial — GrowthHub
 
-## Project info
+Template oficial para criar páginas de proposta comercial de alto padrão. Todas as propostas começam por aqui.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Stack
 
-## How can I edit this code?
+- **Vite** + **React 18** + **TypeScript**
+- **Tailwind CSS** + **shadcn/ui** (46 primitivos prontos)
+- **Framer Motion** (animações)
+- **Lucide Icons**
 
-There are several ways of editing your application.
+## Quick start
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Abra http://localhost:8080. A proposta de exemplo aparece com placeholders.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Como criar uma nova proposta
 
-**Use GitHub Codespaces**
+Você edita **apenas 1 arquivo e 1 asset**:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. **`src/modules/proposta/data/proposta.config.tsx`** — todo o conteúdo (textos, preços, itens, links) está aqui.
+2. **`src/assets/`** — troque `logo-placeholder.svg` pelo logo do cliente e atualize a referência no config.
 
-## What technologies are used for this project?
+Nada em `src/modules/proposta/components/` precisa mudar para uma proposta nova. Se você sentir vontade de tocar nesses arquivos, **pare** e leia [`CLAUDE.md`](./CLAUDE.md) primeiro — provavelmente o que você quer já existe.
 
-This project is built with:
+## Seções disponíveis
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+| Seção | Obrigatória | Descrição |
+|---|---|---|
+| `hero` | ✅ | Capa com logo, badge, título e CTA scroll |
+| `marquee` | ✅ | Faixa horizontal de palavras-chave |
+| `momentoAtual` | ⚪ opcional | Diagnóstico: cenário manual vs. automatizado |
+| `ecossistema` | ✅ | Grid de 6 pilares com ícone |
+| `featureTabs` | ✅ | Features em layout alternado com mockup |
+| `jornada` | ✅ | Roadmap de 4 etapas |
+| `investimento` | ⚪ opcional | Comparativo de custo vs. retorno |
+| `precos` | ✅ | Cards de planos (1 ou 2 colunas) |
+| `cta` | ✅ | Chamada final com botão |
 
-## How can I deploy this project?
+Seções opcionais somem automaticamente se você remover a chave do config.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Documentação
 
-## Can I connect a custom domain to my Lovable project?
+- [`CLAUDE.md`](./CLAUDE.md) — regras para qualquer IA/dev mexer no template.
+- [`docs/playbook.md`](./docs/playbook.md) — receitas por tipo de proposta.
+- [`docs/design-system.md`](./docs/design-system.md) — paleta, tipografia, animações.
+- [`docs/checklist-qualidade.md`](./docs/checklist-qualidade.md) — checklist antes de entregar.
+- [`docs/roadmap.md`](./docs/roadmap.md) — evoluções planejadas.
 
-Yes, you can!
+## Scripts
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```bash
+npm run dev          # dev server (porta 8080)
+npm run build        # build de produção
+npm run preview      # serve o build local
+npm run lint         # eslint
+npm run test         # vitest
+```
