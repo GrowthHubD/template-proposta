@@ -8,6 +8,7 @@ import {
   InvestimentoSection,
   PrecosSection,
   CTASection,
+  Footer,
 } from "@/modules/proposta";
 import { proposta } from "@/modules/proposta/data/proposta.config";
 
@@ -33,6 +34,8 @@ const Index = () => {
       <PrecosSection data={proposta.precos} />
 
       <CTASection data={proposta.cta} />
+
+      {proposta.footer && <Footer data={proposta.footer} />}
     </main>
   );
 };

@@ -282,4 +282,11 @@ export const proposta: PropostaConfig = {
     botaoLabel: "Falar no WhatsApp",
     botaoLink: "https://wa.me/55[DDD][NÚMERO]",
   },
+
+  footer: {
+    logoSrc: logo,
+    siteUrl: "https://methodgrowthhub.com.br",
+    siteLabel: "methodgrowthhub.com.br",
+    nota: "GrowthHub · Tecnologia e automação sob medida para clínicas e negócios.",
+  },
 };

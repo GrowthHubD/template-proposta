@@ -114,6 +114,13 @@ export interface CTAData {
   botaoLink?: string;
 }
 
+export interface FooterData {
+  logoSrc?: string;
+  siteUrl: string;
+  siteLabel: string;
+  nota?: string;
+}
+
 export interface PropostaConfig {
   hero: HeroData;
   marquee: MarqueeData;
@@ -124,4 +131,5 @@ export interface PropostaConfig {
   investimento?: InvestimentoData;
   precos: PrecosData;
   cta: CTAData;
+  footer?: FooterData;
 }
