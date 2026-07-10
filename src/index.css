@@ -240,3 +240,46 @@
 .animate-typing-dot {
   animation: typing-dot 1.2s ease-in-out infinite;
 }
+
+/* Impressão / Exportar PDF (Salvar como PDF do navegador) */
+@media print {
+  @page {
+    margin: 8mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    background: hsl(0 0% 9%) !important;
+    overflow: visible !important;
+  }
+
+  /* Elementos que não saem no PDF (ex.: o próprio botão de exportar) */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Garante que seções com animação de entrada apareçam no PDF */
+  [style*="opacity"] {
+    opacity: 1 !important;
+  }
+
+  /* Não quebrar um card no meio entre páginas */
+  .glass,
+  .glass-dark {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Hero não precisa ocupar a tela inteira na impressão */
+  main > section:first-child {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
