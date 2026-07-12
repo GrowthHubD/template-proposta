@@ -280,7 +280,8 @@ export const proposta: PropostaConfig = {
     descricao:
       "[Frase de fechamento que reforça o ganho e convida à ação.]",
     botaoLabel: "Falar no WhatsApp",
-    botaoLink: "https://wa.me/55[DDD][NÚMERO]",
+    // WhatsApp da GrowthHub: as propostas são encaminhadas para este número.
+    botaoLink: "https://wa.me/5521991083870?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta.",
   },
 
   footer: {
