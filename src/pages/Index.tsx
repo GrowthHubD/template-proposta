@@ -9,7 +9,6 @@ import {
   PrecosSection,
   CTASection,
   Footer,
-  PdfExportButton,
 } from "@/modules/proposta";
 import { proposta } from "@/modules/proposta/data/proposta.config";
 
@@ -37,8 +36,6 @@ const Index = () => {
       <CTASection data={proposta.cta} />
 
       {proposta.footer && <Footer data={proposta.footer} />}
-
-      <PdfExportButton />
     </main>
   );
 };
