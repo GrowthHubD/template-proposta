@@ -4,7 +4,6 @@ import {
   FileText,
   HelpCircle,
   TrendingUp,
-  RotateCcw,
   BarChart3,
   Link2,
   ArrowRight,
@@ -19,7 +18,7 @@ import type { PropostaConfig } from "../types";
 /**
  * FONTE ÚNICA DE CONTEÚDO DA PROPOSTA.
  *
- * Proposta comercial: Rainoah (contato Julio), 5 agentes de IA para o comercial.
+ * Proposta comercial: Rainoah (contato Julio), 4 agentes de IA para o comercial.
  * Conteúdo migrado de uma proposta de referência já existente, mantendo os
  * entregáveis e adaptando à identidade visual padrão do template (Method GrowthHub).
  */
@@ -106,30 +105,6 @@ const ScoreMockup = () => (
   </div>
 );
 
-const ReativacaoMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <RotateCcw className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Fila de reativação
-      </p>
-    </div>
-    <div className="rounded-xl bg-white/5 border border-white/10 p-4 mb-4">
-      <p className="text-xs text-foreground/85 font-medium mb-2">Ortopedia Center</p>
-      <div className="flex items-center justify-between text-[10px] text-muted-foreground">
-        <span>Última compra: 52 dias</span>
-        <span>Ciclo médio: 45 dias</span>
-      </div>
-    </div>
-    <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
-      <p className="text-[9px] uppercase tracking-widest text-primary mb-2">Mensagem pronta</p>
-      <p className="text-[11px] text-foreground/85 leading-relaxed">
-        &quot;Fechado seu último pedido de Massageador Corporal, já deve estar acabando o giro. Bora repor?&quot;
-      </p>
-    </div>
-  </div>
-);
-
 const RelatorioMockup = () => (
   <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
     <div className="flex items-center gap-2 mb-6">
@@ -183,7 +158,7 @@ const TreinamentoMockup = () => (
           <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Pós entrega</span>
         </div>
         <p className="text-[11px] text-foreground/80 leading-relaxed">
-          Como usar o copiloto comercial e a reativação no dia a dia
+          Como usar o copiloto comercial e o painel de gestão no dia a dia
         </p>
       </div>
     </div>
@@ -240,7 +215,7 @@ export const proposta: PropostaConfig = {
     titulo: "Visibilidade, controle e recompra",
     tituloDestaque: "para o comercial da Rainoah",
     subtitulo:
-      "Uma rede de distribuidores em todo o Brasil gera muita conversa e pouco registro. Cinco agentes de IA cuidam do resto.",
+      "Uma rede de distribuidores em todo o Brasil gera muita conversa e pouco registro. Quatro agentes de IA cuidam do resto.",
     logoSrc: logo,
     logoAlt: "GrowthHub",
     ctaLabel: "Ver como funciona",
@@ -249,11 +224,10 @@ export const proposta: PropostaConfig = {
 
   marquee: {
     items: [
-      "5 AGENTES DE IA",
+      "4 AGENTES DE IA",
       "REGISTRO AUTOMÁTICO",
       "COPILOTO DE VENDAS",
       "SCORE DE NEGOCIAÇÃO",
-      "REATIVAÇÃO DE BASE",
       "RELATÓRIO DIÁRIO",
       "TUDO NO CRM ATUAL",
     ],
@@ -271,7 +245,6 @@ export const proposta: PropostaConfig = {
         "O que foi falado se perde: histórico de call e negociação vive só no WhatsApp e na cabeça do vendedor.",
         "O vendedor responde sozinho: dúvida de voltagem, modelo ou prazo vira consulta interna que trava a negociação.",
         "Ninguém sabe como está cada negócio: sem critério objetivo, negociação parada parece igual a negociação quente.",
-        "Quem já comprou some sem ninguém notar: distribuidor que parou de comprar continua na base como cliente ativo.",
       ],
     },
     solucao: {
@@ -281,13 +254,12 @@ export const proposta: PropostaConfig = {
         "Cada interação vira resumo automático, com dores, objeções e próximo passo já registrados.",
         "O agente de auxílio comercial responde na hora, com o argumento que já funcionou antes.",
         "Cada negociação recebe uma nota de 0 a 100. A gestão age enquanto o negócio ainda existe.",
-        "O agente de reativação avisa quando a conta passou do ponto de reposição, com mensagem pronta.",
       ],
     },
   },
 
   ecossistema: {
-    eyebrow: "OS CINCO AGENTES",
+    eyebrow: "OS QUATRO AGENTES",
     titulo: "Um agente pra cada etapa do comercial",
     subtitulo:
       "Todos operam sobre o CRM que a Rainoah já usa. Nenhum sistema novo para o time aprender.",
@@ -306,11 +278,6 @@ export const proposta: PropostaConfig = {
         icone: TrendingUp,
         titulo: "Score de negociação",
         descricao: "Nota de 0 a 100 por negociação, considerando etapas, tempo e qualidade do registro.",
-      },
-      {
-        icone: RotateCcw,
-        titulo: "Reativação e recompra",
-        descricao: "Avisa quando uma conta passou do ponto de reposição e já gera a mensagem de retomada.",
       },
       {
         icone: BarChart3,
@@ -370,20 +337,6 @@ export const proposta: PropostaConfig = {
         mockup: <ScoreMockup />,
       },
       {
-        label: "REATIVAÇÃO",
-        icone: RotateCcw,
-        titulo: "Receita nova sem lead novo",
-        descricao:
-          "É o agente que costuma se pagar primeiro: calcula o ciclo de recompra de cada conta e avisa antes dela sumir de vez.",
-        itens: [
-          "Calcula o ciclo natural de recompra de cada distribuidor e lojista",
-          "Avisa quando a conta passou do ponto de reposição",
-          "Gera mensagem de retomada já personalizada com a linha que a conta mais gira",
-          "Separa a base em ativa, em risco e adormecida",
-        ],
-        mockup: <ReativacaoMockup />,
-      },
-      {
         label: "RELATÓRIO GERENCIAL",
         icone: BarChart3,
         titulo: "Gestão comercial em cinco minutos por dia",
@@ -402,7 +355,7 @@ export const proposta: PropostaConfig = {
         icone: GraduationCap,
         titulo: "Dois treinamentos pra destravar o time",
         descricao:
-          "Depois da ativação, o time comercial recebe dois treinamentos ao vivo: um pra dominar o sistema, outro pra tirar o máximo dos cinco agentes no dia a dia.",
+          "Depois da ativação, o time comercial recebe dois treinamentos ao vivo: um pra dominar o sistema, outro pra tirar o máximo dos quatro agentes no dia a dia.",
         itens: [
           "Treinamento 1: uso do sistema e do painel de gestão",
           "Treinamento 2: como tirar o máximo de cada agente",
@@ -457,44 +410,42 @@ export const proposta: PropostaConfig = {
         numero: 4,
         titulo: "Painel completo",
         descricao:
-          "Score de negociação, reativação de base e relatório gerencial diário entram em operação, com painel de gestão liberado.",
+          "Score de negociação e relatório gerencial diário entram em operação, com painel de gestão liberado.",
       },
       {
         numero: 5,
         titulo: "Ativação",
         descricao:
-          "Treinamento ao vivo com o time comercial, liberação dos cinco agentes pra operação inteira e acompanhamento diário na primeira semana.",
+          "Treinamento ao vivo com o time comercial, liberação dos quatro agentes pra operação inteira e acompanhamento diário na primeira semana.",
       },
     ],
   },
 
   investimento: {
     eyebrow: "O CUSTO DE NÃO TER",
-    titulo: "Antes e depois dos cinco agentes",
+    titulo: "Antes e depois dos quatro agentes",
     subtitulo:
-      "O comercial da Rainoah antes de ter registro, copiloto, controle e recompra automatizados, e depois.",
+      "O comercial da Rainoah antes de ter registro, copiloto e controle automatizados, e depois.",
     cenarioAtual: {
       titulo: "Cenário Atual",
       label: "HOJE",
       destaque: "Comercial na memória do vendedor",
-      subtitulo: "Sem registro, sem critério, sem reativação",
+      subtitulo: "Sem registro, sem critério",
       items: [
         "Histórico de negociação vive só no WhatsApp e na cabeça do vendedor",
         "Cada dúvida de produto vira consulta interna que trava a venda",
         "Negociação parada parece igual a negociação quente, sem critério objetivo",
-        "Distribuidor que parou de comprar continua ativo na base, sem ninguém notar",
       ],
     },
     cenarioFuturo: {
       titulo: "Cenário Rainoah",
-      label: "COM OS 5 AGENTES",
+      label: "COM OS 4 AGENTES",
       destaque: "Comercial com visibilidade total",
-      subtitulo: "Registro, copiloto, controle e recompra automatizados",
+      subtitulo: "Registro, copiloto e controle automatizados",
       items: [
         "Cada interação registrada automaticamente, com próximo passo já definido",
         "Copiloto comercial responde dúvidas de produto e política na hora",
         "Nota de 0 a 100 por negociação, direto no painel de gestão",
-        "Reativação automática de conta que passou do ponto de reposição",
         "Relatório gerencial pronto todo dia, sem cobrar planilha de ninguém",
       ],
     },
@@ -506,14 +457,14 @@ export const proposta: PropostaConfig = {
     planos: [
       {
         eyebrow: "IMPLEMENTAÇÃO",
-        nome: "Setup dos Cinco Agentes",
+        nome: "Setup dos Quatro Agentes",
         descricao:
-          "Mapeamento do processo, construção dos cinco agentes e ativação assistida, em 5 semanas.",
+          "Mapeamento do processo, construção dos quatro agentes e ativação assistida, em 5 semanas.",
         valor: "R$ 6.997",
         periodo: "pagamento único",
         rotuloValor: "implementação completa",
         itens: [
-          "Mapeamento do processo comercial e construção dos cinco agentes",
+          "Mapeamento do processo comercial e construção dos quatro agentes",
           "Base de conhecimento treinada em catálogo, política e argumentos",
           "Integração completa com o CRM que a Rainoah já usa",
           "Painel de gestão com nota por negociação e ranking",
@@ -527,13 +478,13 @@ export const proposta: PropostaConfig = {
         eyebrow: "MANUTENÇÃO",
         nome: "Manutenção Mensal",
         descricao:
-          "Tudo que mantém os cinco agentes rodando, evoluindo e sempre atualizados.",
+          "Tudo que mantém os quatro agentes rodando, evoluindo e sempre atualizados.",
         valor: "R$ 1.799",
         periodo: "/mês",
         rotuloValor: "mensalidade fixa",
         destaque: true,
         itens: [
-          "Monitoramento e correção de falhas dos cinco agentes",
+          "Monitoramento e correção de falhas dos quatro agentes",
           "Atualização de APIs e integrações, incluindo CRM e canal de atendimento",
           "Melhoria contínua dos agentes com base no feedback direto dos vendedores",
           "Otimização de velocidade de resposta e do banco de dados",
