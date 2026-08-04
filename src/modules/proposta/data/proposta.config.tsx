@@ -1,13 +1,17 @@
 import {
   Target,
   Lightbulb,
-  Clock,
-  CalendarCheck,
+  FileText,
+  HelpCircle,
+  TrendingUp,
   RotateCcw,
-  BellRing,
-  PieChart,
-  Activity,
-  Sparkles,
+  BarChart3,
+  Link2,
+  ArrowRight,
+  Clock,
+  GraduationCap,
+  Video,
+  Wrench,
 } from "lucide-react";
 import logo from "@/assets/logo-growthhub.png";
 import type { PropostaConfig } from "../types";
@@ -15,107 +19,308 @@ import type { PropostaConfig } from "../types";
 /**
  * FONTE ÚNICA DE CONTEÚDO DA PROPOSTA.
  *
- * Este é o template. Substitua TODOS os placeholders [XYZ] pelo
- * conteúdo real do cliente antes de entregar.
- *
- * Regras:
- *   1. Não passe strings hard-coded para os componentes — tudo aqui.
- *   2. Os tipos em ../types.ts são a fonte de verdade. Não invente campos.
- *   3. Para mockups customizados em featureTabs, defina componentes locais
- *      neste arquivo (é .tsx, suporta JSX) e passe via `mockup: <Seu />`.
- *      Veja .claude/skills/ui-ux-pro-max/SKILL.md para o padrão visual.
- *   4. Antes de entregar: rode `npm run lint && npm run build` e percorra
- *      a página em 375 / 768 / 1440px.
- *
- * Veja docs/escopo-template.md para o formato esperado de escopo do cliente.
+ * Proposta comercial: Rainoah (contato Julio), 5 agentes de IA para o comercial.
+ * Conteúdo migrado de uma proposta de referência já existente, mantendo os
+ * entregáveis e adaptando à identidade visual padrão do template (Method GrowthHub).
  */
+
+const DocMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      <div className="w-2 h-2 rounded-full bg-red-500/80" />
+      <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
+      <div className="w-2 h-2 rounded-full bg-green-500/80" />
+      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Registro automático
+      </p>
+    </div>
+    <div className="grid grid-cols-2 gap-4 items-stretch">
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4 flex flex-col justify-center">
+        <p className="text-[9px] uppercase tracking-widest text-muted-foreground/60 mb-2">Call recebida</p>
+        <p className="text-xs text-foreground/70 leading-relaxed">
+          &quot;Distribuidora Sul pediu desconto pra pedido grande da linha Reflex, falou que fecha até sexta&quot;
+        </p>
+      </div>
+      <div className="flex items-center justify-center">
+        <ArrowRight className="w-5 h-5 text-primary/60" />
+      </div>
+    </div>
+    <div className="mt-4 rounded-xl bg-primary/10 border border-primary/30 p-4">
+      <p className="text-[9px] uppercase tracking-widest text-primary mb-2">Registro estruturado</p>
+      <div className="space-y-1.5 text-[11px] text-foreground/85">
+        <p><span className="text-muted-foreground">Conta:</span> Distribuidora Sul</p>
+        <p><span className="text-muted-foreground">Interesse:</span> Linha Reflex, pedido grande</p>
+        <p><span className="text-muted-foreground">Próximo passo:</span> Enviar tabela de desconto até 6ª</p>
+      </div>
+    </div>
+  </div>
+);
+
+const AuxilioMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      <div className="w-2 h-2 rounded-full bg-red-500/80" />
+      <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
+      <div className="w-2 h-2 rounded-full bg-green-500/80" />
+      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Copiloto Rainoah
+      </p>
+    </div>
+    <div className="space-y-3">
+      <div className="rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 p-3 max-w-[85%]">
+        <p className="text-xs text-foreground/75">Qual a diferença entre a Reflex e a Bota Trekking pro lojista?</p>
+      </div>
+      <div className="rounded-2xl rounded-tr-sm bg-primary/10 border border-primary/30 p-3 max-w-[90%] ml-auto">
+        <p className="text-xs text-foreground/90 leading-relaxed">
+          Reflex é eletroestimulador, indicado pra dor localizada. Bota Trekking é compressão pra pernas cansadas.
+          Faixa de desconto pra lojista: até 12% em pedido fechado.
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const ScoreMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      <TrendingUp className="w-4 h-4 text-primary/70" />
+      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Score de negociação
+      </p>
+    </div>
+    <div className="space-y-3">
+      {[
+        { conta: "Distribuidora Sul", nota: "92", status: "Quente", cor: "text-primary" },
+        { conta: "Ortopedia Center", nota: "68", status: "Andamento", cor: "text-foreground/70" },
+        { conta: "Loja Vitta", nota: "24", status: "Risco", cor: "text-destructive/80" },
+      ].map((linha) => (
+        <div key={linha.conta} className="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-4 py-2.5">
+          <span className="text-xs text-foreground/80">{linha.conta}</span>
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-bold text-foreground">{linha.nota}</span>
+            <span className={`text-[9px] font-bold uppercase tracking-widest ${linha.cor}`}>{linha.status}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const ReativacaoMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      <RotateCcw className="w-4 h-4 text-primary/70" />
+      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Fila de reativação
+      </p>
+    </div>
+    <div className="rounded-xl bg-white/5 border border-white/10 p-4 mb-4">
+      <p className="text-xs text-foreground/85 font-medium mb-2">Ortopedia Center</p>
+      <div className="flex items-center justify-between text-[10px] text-muted-foreground">
+        <span>Última compra: 52 dias</span>
+        <span>Ciclo médio: 45 dias</span>
+      </div>
+    </div>
+    <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
+      <p className="text-[9px] uppercase tracking-widest text-primary mb-2">Mensagem pronta</p>
+      <p className="text-[11px] text-foreground/85 leading-relaxed">
+        &quot;Fechado seu último pedido de Massageador Corporal, já deve estar acabando o giro. Bora repor?&quot;
+      </p>
+    </div>
+  </div>
+);
+
+const RelatorioMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      <BarChart3 className="w-4 h-4 text-primary/70" />
+      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Resumo de hoje
+      </p>
+    </div>
+    <div className="grid grid-cols-3 gap-3 mb-4">
+      <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
+        <p className="text-lg font-bold text-foreground">14</p>
+        <p className="text-[8px] uppercase tracking-widest text-muted-foreground mt-1">Avançaram</p>
+      </div>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
+        <p className="text-lg font-bold text-foreground">5</p>
+        <p className="text-[8px] uppercase tracking-widest text-muted-foreground mt-1">Travaram</p>
+      </div>
+      <div className="rounded-xl bg-primary/10 border border-primary/30 p-3 text-center">
+        <p className="text-lg font-bold text-primary">3</p>
+        <p className="text-[8px] uppercase tracking-widest text-primary/80 mt-1">Críticas</p>
+      </div>
+    </div>
+    <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
+      <Clock className="w-3 h-3" />
+      <span>Enviado às 8h todo dia</span>
+    </div>
+  </div>
+);
+
+const TreinamentoMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      <GraduationCap className="w-4 h-4 text-primary/70" />
+      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Agenda de treinamento
+      </p>
+    </div>
+    <div className="space-y-3">
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-xs font-medium text-foreground/85">Treinamento 01 · Sistema</p>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Semana 5</span>
+        </div>
+        <p className="text-[11px] text-muted-foreground leading-relaxed">
+          Painel de gestão, score de negociação e relatório gerencial
+        </p>
+      </div>
+      <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-xs font-medium text-foreground/90">Treinamento 02 · Agentes de IA</p>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Pós entrega</span>
+        </div>
+        <p className="text-[11px] text-foreground/80 leading-relaxed">
+          Como usar o copiloto comercial e a reativação no dia a dia
+        </p>
+      </div>
+    </div>
+    <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
+      <Video className="w-3 h-3" />
+      <span>Sessões gravadas pro time rever</span>
+    </div>
+  </div>
+);
+
+const ManutencaoMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      <Wrench className="w-4 h-4 text-primary/70" />
+      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Changelog do mês
+      </p>
+    </div>
+    <div className="space-y-3">
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-xs font-medium text-foreground/85">Feedback do vendedor</p>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Aplicado</span>
+        </div>
+        <p className="text-[11px] text-muted-foreground leading-relaxed">
+          Ajuste no argumento de desconto pra linha Reflex
+        </p>
+      </div>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-xs font-medium text-foreground/85">Performance do banco de dados</p>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Otimizado</span>
+        </div>
+        <p className="text-[11px] text-muted-foreground leading-relaxed">
+          Consulta de histórico mais rápida pro copiloto responder na hora
+        </p>
+      </div>
+      <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-xs font-medium text-foreground/90">Integração CRM</p>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Atualizada</span>
+        </div>
+        <p className="text-[11px] text-foreground/80 leading-relaxed">
+          API sincronizada com a versão mais recente, sem parar o sistema
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
 export const proposta: PropostaConfig = {
   hero: {
-    badge: "PROPOSTA COMERCIAL · [NOME DO CLIENTE]",
-    titulo: "[FRASE DE ABERTURA — primeira parte]",
-    tituloDestaque: "[FRASE DE ABERTURA — parte com destaque]",
+    badge: "PROPOSTA COMERCIAL · JULIO · RAINOAH",
+    titulo: "Visibilidade, controle e recompra",
+    tituloDestaque: "para o comercial da Rainoah",
     subtitulo:
-      "[Subtítulo de 1 a 2 linhas que explica o produto/serviço e o ganho principal pro cliente. Voz ativa, frase curta.]",
+      "Uma rede de distribuidores em todo o Brasil gera muita conversa e pouco registro. Cinco agentes de IA cuidam do resto.",
     logoSrc: logo,
-    logoAlt: "[Nome do cliente]",
+    logoAlt: "GrowthHub",
     ctaLabel: "Ver como funciona",
     scrollTargetId: "momento-atual",
   },
 
   marquee: {
     items: [
-      "[KEYWORD 1]",
-      "[KEYWORD 2]",
-      "[KEYWORD 3]",
-      "[KEYWORD 4]",
-      "[KEYWORD 5]",
-      "[KEYWORD 6]",
-      "[KEYWORD 7]",
+      "5 AGENTES DE IA",
+      "REGISTRO AUTOMÁTICO",
+      "COPILOTO DE VENDAS",
+      "SCORE DE NEGOCIAÇÃO",
+      "REATIVAÇÃO DE BASE",
+      "RELATÓRIO DIÁRIO",
+      "TUDO NO CRM ATUAL",
     ],
   },
 
   momentoAtual: {
     eyebrow: "O CENÁRIO HOJE",
-    titulo: "[Título da dor — uma frase direta sobre o problema atual]",
+    titulo: "Trinta anos de produto resolvido, comercial que não escala",
     subtitulo:
-      "[Subtítulo que aprofunda a dor em 1 a 2 linhas. Conecta o problema atual ao impacto financeiro/operacional pro cliente.]",
+      "A Rainoah tem parque fabril e linha completa de massageadores. A rede de distribuidores no Brasil inteiro ainda depende de WhatsApp e memória.",
     desafio: {
       titulo: "Como é hoje",
       icone: Target,
       items: [
-        "[Dor 1 — concreta, observável]",
-        "[Dor 2 — impacto direto]",
-        "[Dor 3 — consequência operacional]",
-        "[Dor 4 — consequência financeira ou de imagem]",
+        "O que foi falado se perde: histórico de call e negociação vive só no WhatsApp e na cabeça do vendedor.",
+        "O vendedor responde sozinho: dúvida de voltagem, modelo ou prazo vira consulta interna que trava a negociação.",
+        "Ninguém sabe como está cada negócio: sem critério objetivo, negociação parada parece igual a negociação quente.",
+        "Quem já comprou some sem ninguém notar: distribuidor que parou de comprar continua na base como cliente ativo.",
       ],
     },
     solucao: {
       titulo: "Como passa a ser",
       icone: Lightbulb,
       items: [
-        "[Solução 1 — em paralelo à dor 1]",
-        "[Solução 2 — em paralelo à dor 2]",
-        "[Solução 3 — em paralelo à dor 3]",
-        "[Solução 4 — em paralelo à dor 4]",
+        "Cada interação vira resumo automático, com dores, objeções e próximo passo já registrados.",
+        "O agente de auxílio comercial responde na hora, com o argumento que já funcionou antes.",
+        "Cada negociação recebe uma nota de 0 a 100. A gestão age enquanto o negócio ainda existe.",
+        "O agente de reativação avisa quando a conta passou do ponto de reposição, com mensagem pronta.",
       ],
     },
   },
 
   ecossistema: {
-    eyebrow: "OS PILARES",
-    titulo: "[Título que sintetiza o sistema/serviço inteiro]",
+    eyebrow: "OS CINCO AGENTES",
+    titulo: "Um agente pra cada etapa do comercial",
     subtitulo:
-      "[Subtítulo conectando os 6 pilares numa promessa única.]",
+      "Todos operam sobre o CRM que a Rainoah já usa. Nenhum sistema novo para o time aprender.",
     pilares: [
       {
-        icone: Clock,
-        titulo: "[Pilar 1]",
-        descricao: "[Descrição em 1 frase do que o pilar entrega.]",
+        icone: FileText,
+        titulo: "Documentação automática",
+        descricao: "Transforma cada interação em resumo com dores, objeções e próximo passo.",
       },
       {
-        icone: CalendarCheck,
-        titulo: "[Pilar 2]",
-        descricao: "[Descrição em 1 frase do que o pilar entrega.]",
+        icone: HelpCircle,
+        titulo: "Auxílio comercial",
+        descricao: "Responde dúvidas de produto e política e sugere argumento de venda na hora.",
+      },
+      {
+        icone: TrendingUp,
+        titulo: "Score de negociação",
+        descricao: "Nota de 0 a 100 por negociação, considerando etapas, tempo e qualidade do registro.",
       },
       {
         icone: RotateCcw,
-        titulo: "[Pilar 3]",
-        descricao: "[Descrição em 1 frase do que o pilar entrega.]",
+        titulo: "Reativação e recompra",
+        descricao: "Avisa quando uma conta passou do ponto de reposição e já gera a mensagem de retomada.",
       },
       {
-        icone: BellRing,
-        titulo: "[Pilar 4]",
-        descricao: "[Descrição em 1 frase do que o pilar entrega.]",
+        icone: BarChart3,
+        titulo: "Relatório gerencial",
+        descricao: "Resumo diário do que avançou, travou e precisa de decisão, sem cobrar planilha de ninguém.",
       },
       {
-        icone: PieChart,
-        titulo: "[Pilar 5]",
-        descricao: "[Descrição em 1 frase do que o pilar entrega.]",
-      },
-      {
-        icone: Activity,
-        titulo: "[Pilar 6]",
-        descricao: "[Descrição em 1 frase do que o pilar entrega.]",
+        icone: Link2,
+        titulo: "Fundação única",
+        descricao: "Tudo roda integrado ao CRM que a Rainoah já usa, sem sistema novo pra aprender.",
       },
     ],
   },
@@ -123,106 +328,174 @@ export const proposta: PropostaConfig = {
   featureTabs: {
     tabs: [
       {
-        label: "[ABA 1 — label curto, caps]",
-        icone: Sparkles,
-        titulo: "[Título da aba 1]",
+        label: "DOCUMENTAÇÃO",
+        icone: FileText,
+        titulo: "Documentação automática pra SDRs",
         descricao:
-          "[Parágrafo explicando o que essa funcionalidade faz e por que importa pro cliente.]",
+          "Cada call, cada conversa de lojista e cada negociação de marca própria vira registro, sem depender da memória do vendedor.",
         itens: [
-          "[Item 1]",
-          "[Item 2]",
-          "[Item 3]",
-          "[Item 4]",
+          "Resumo objetivo com dores, objeções e próximo passo",
+          "Preenche automaticamente perfil, região e interesse do lead",
+          "Gera follow-up sugerido já escrito, no tom da Rainoah",
+          "Mantém histórico contínuo por conta",
         ],
-        // mockup: <Mockup1 />, // opcional — ver SKILL.md ui-ux-pro-max
+        mockup: <DocMockup />,
       },
       {
-        label: "[ABA 2 — label curto, caps]",
+        label: "AUXÍLIO COMERCIAL",
+        icone: HelpCircle,
+        titulo: "Um copiloto pra cada vendedor",
+        descricao:
+          "Vendedor novo produz como vendedor antigo, em semanas e não em meses. O agente responde antes que a dúvida trave a negociação.",
+        itens: [
+          "Responde dúvidas de produto, voltagem, modelo e garantia",
+          "Consulta a política comercial: faixas de desconto e condições",
+          "Sugere argumento de quebra de objeção com base no que já funcionou",
+          "Monta rascunho de proposta e mensagem",
+        ],
+        mockup: <AuxilioMockup />,
+      },
+      {
+        label: "SCORE DE PROCESSO",
+        icone: TrendingUp,
+        titulo: "Uma nota pra cada negociação",
+        descricao:
+          "A gestão passa a agir sobre a negociação enquanto ela ainda existe, não depois que o cliente já sumiu.",
+        itens: [
+          "Nota de 0 a 100 considerando etapas, tempo de resposta e qualidade do registro",
+          "Aponta etapas puladas: qualificação incompleta, proposta sem diagnóstico",
+          "Sinaliza risco de perda antes do cliente sumir",
+          "Painel de gestão com nota média e ranking por vendedor e região",
+        ],
+        mockup: <ScoreMockup />,
+      },
+      {
+        label: "REATIVAÇÃO",
         icone: RotateCcw,
-        titulo: "[Título da aba 2]",
+        titulo: "Receita nova sem lead novo",
         descricao:
-          "[Parágrafo explicando a funcionalidade.]",
+          "É o agente que costuma se pagar primeiro: calcula o ciclo de recompra de cada conta e avisa antes dela sumir de vez.",
         itens: [
-          "[Item 1]",
-          "[Item 2]",
-          "[Item 3]",
-          "[Item 4]",
+          "Calcula o ciclo natural de recompra de cada distribuidor e lojista",
+          "Avisa quando a conta passou do ponto de reposição",
+          "Gera mensagem de retomada já personalizada com a linha que a conta mais gira",
+          "Separa a base em ativa, em risco e adormecida",
         ],
+        mockup: <ReativacaoMockup />,
       },
       {
-        label: "[ABA 3 — label curto, caps]",
-        icone: PieChart,
-        titulo: "[Título da aba 3]",
+        label: "RELATÓRIO GERENCIAL",
+        icone: BarChart3,
+        titulo: "Gestão comercial em cinco minutos por dia",
         descricao:
-          "[Parágrafo explicando a funcionalidade.]",
+          "Resumo diário do que avançou, do que travou e do que precisa de decisão hoje, sem cobrar planilha de ninguém.",
         itens: [
-          "[Item 1]",
-          "[Item 2]",
-          "[Item 3]",
-          "[Item 4]",
+          "Resumo diário: o que avançou, o que travou e o que precisa de decisão",
+          "Destaque das três contas mais críticas do dia",
+          "Fechamento semanal com evolução de nota e desempenho",
+          "Alerta imediato para contas grandes em risco",
         ],
+        mockup: <RelatorioMockup />,
+      },
+      {
+        label: "TREINAMENTO",
+        icone: GraduationCap,
+        titulo: "Dois treinamentos pra destravar o time",
+        descricao:
+          "Depois da ativação, o time comercial recebe dois treinamentos ao vivo: um pra dominar o sistema, outro pra tirar o máximo dos cinco agentes no dia a dia.",
+        itens: [
+          "Treinamento 1: uso do sistema e do painel de gestão",
+          "Treinamento 2: como tirar o máximo de cada agente",
+          "Sessões gravadas, disponíveis pro time rever quando quiser",
+          "Espaço aberto pra dúvidas depois da virada de chave",
+        ],
+        mockup: <TreinamentoMockup />,
+      },
+      {
+        label: "MANUTENÇÃO",
+        icone: Wrench,
+        titulo: "Manutenção pensada pra evoluir, não só sustentar",
+        descricao:
+          "Todo mês o sistema fica mais rápido e mais afiado. Melhoria entra a partir do feedback real do time comercial, não só quando algo quebra.",
+        itens: [
+          "Melhoria contínua com base no feedback direto dos vendedores",
+          "Otimização de velocidade de resposta e do banco de dados",
+          "Atualização de APIs e integrações sempre que a Rainoah mudar de ferramenta",
+          "Pequenas melhorias e novas funcionalidades dentro do escopo já acordado",
+        ],
+        mockup: <ManutencaoMockup />,
       },
     ],
   },
 
   jornada: {
-    eyebrow: "IMPLEMENTAÇÃO EM [N] DIAS",
-    titulo: "[Título da jornada — primeira parte]",
-    tituloDestaque: "[parte com destaque]",
+    eyebrow: "IMPLEMENTAÇÃO EM 5 SEMANAS",
+    titulo: "Cada semana entrega algo",
+    tituloDestaque: "funcionando e validado pelo time",
     subtitulo:
-      "[Subtítulo descrevendo o processo de entrega em alto nível.]",
+      "Sem grande virada de chave no fim. Só entrega validada, semana após semana.",
     etapas: [
       {
         numero: 1,
-        titulo: "[Etapa 1]",
-        descricao: "[O que acontece nessa etapa, em 1 a 2 frases.]",
+        titulo: "Imersão",
+        descricao:
+          "Duas sessões pra mapear o funil comercial real, levantamento técnico do CRM e canal de atendimento, e critérios da nota definidos.",
       },
       {
         numero: 2,
-        titulo: "[Etapa 2]",
-        descricao: "[O que acontece nessa etapa.]",
+        titulo: "Fundação",
+        descricao:
+          "Base de conhecimento treinada em catálogo, política comercial e argumentos, com integração completa ao CRM que a Rainoah já usa.",
       },
       {
         numero: 3,
-        titulo: "[Etapa 3]",
-        descricao: "[O que acontece nessa etapa.]",
+        titulo: "Piloto",
+        descricao:
+          "Documentação automática e auxílio comercial liberados pra um grupo piloto de vendedores, com ajustes a partir do uso real.",
       },
       {
         numero: 4,
-        titulo: "[Etapa 4]",
-        descricao: "[O que acontece nessa etapa.]",
+        titulo: "Painel completo",
+        descricao:
+          "Score de negociação, reativação de base e relatório gerencial diário entram em operação, com painel de gestão liberado.",
+      },
+      {
+        numero: 5,
+        titulo: "Ativação",
+        descricao:
+          "Treinamento ao vivo com o time comercial, liberação dos cinco agentes pra operação inteira e acompanhamento diário na primeira semana.",
       },
     ],
   },
 
   investimento: {
     eyebrow: "O CUSTO DE NÃO TER",
-    titulo: "[Título do comparativo entre cenários]",
+    titulo: "Antes e depois dos cinco agentes",
     subtitulo:
-      "[Subtítulo que reforça o custo de continuar como está.]",
+      "O comercial da Rainoah antes de ter registro, copiloto, controle e recompra automatizados, e depois.",
     cenarioAtual: {
       titulo: "Cenário Atual",
       label: "HOJE",
-      destaque: "[Síntese do problema, ex: 'Tempo + retrabalho']",
-      subtitulo: "[Subtítulo curto do cenário atual]",
+      destaque: "Comercial na memória do vendedor",
+      subtitulo: "Sem registro, sem critério, sem reativação",
       items: [
-        "[Problema operacional 1]",
-        "[Problema operacional 2]",
-        "[Problema operacional 3]",
-        "[Problema operacional 4]",
+        "Histórico de negociação vive só no WhatsApp e na cabeça do vendedor",
+        "Cada dúvida de produto vira consulta interna que trava a venda",
+        "Negociação parada parece igual a negociação quente, sem critério objetivo",
+        "Distribuidor que parou de comprar continua ativo na base, sem ninguém notar",
       ],
     },
     cenarioFuturo: {
-      titulo: "Cenário [NOME DO CLIENTE]",
-      label: "COM O SISTEMA",
-      destaque: "[Síntese do ganho, ex: 'Operação organizada']",
-      subtitulo: "[Subtítulo curto do cenário futuro]",
+      titulo: "Cenário Rainoah",
+      label: "COM OS 5 AGENTES",
+      destaque: "Comercial com visibilidade total",
+      subtitulo: "Registro, copiloto, controle e recompra automatizados",
       items: [
-        "[Ganho 1 — em paralelo ao problema 1]",
-        "[Ganho 2]",
-        "[Ganho 3]",
-        "[Ganho 4]",
-        "[Ganho 5 — extra, opcional]",
+        "Cada interação registrada automaticamente, com próximo passo já definido",
+        "Copiloto comercial responde dúvidas de produto e política na hora",
+        "Nota de 0 a 100 por negociação, direto no painel de gestão",
+        "Reativação automática de conta que passou do ponto de reposição",
+        "Relatório gerencial pronto todo dia, sem cobrar planilha de ninguém",
       ],
     },
   },
@@ -233,61 +506,62 @@ export const proposta: PropostaConfig = {
     planos: [
       {
         eyebrow: "IMPLEMENTAÇÃO",
-        nome: "[Nome do plano de setup, ex: 'Setup Completo']",
+        nome: "Setup dos Cinco Agentes",
         descricao:
-          "[Frase explicando o que é o setup e o prazo.]",
-        valor: "R$ [valor]",
+          "Mapeamento do processo, construção dos cinco agentes e ativação assistida, em 5 semanas.",
+        valor: "R$ 6.997",
         periodo: "pagamento único",
-        rotuloValor: "[rótulo curto, ex: 'duas formas de pagar']",
+        rotuloValor: "implementação completa",
         itens: [
-          "[Entrega 1 do setup]",
-          "[Entrega 2]",
-          "[Entrega 3]",
-          "[Entrega 4]",
-          "[Entrega 5]",
-          "[Entrega 6]",
+          "Mapeamento do processo comercial e construção dos cinco agentes",
+          "Base de conhecimento treinada em catálogo, política e argumentos",
+          "Integração completa com o CRM que a Rainoah já usa",
+          "Painel de gestão com nota por negociação e ranking",
+          "2 treinamentos comerciais ao vivo: uso do sistema e uso dos agentes",
+          "Ativação assistida com acompanhamento diário na primeira semana",
         ],
         observacao:
-          "[Detalhe sobre formas de pagamento ou desconto à vista, opcional.]",
+          "Requer acesso ao CRM, catálogo atualizado, política comercial vigente e cerca de 2h do time comercial nas duas primeiras semanas.",
       },
       {
-        eyebrow: "RECORRÊNCIA",
-        nome: "[Nome do plano mensal, ex: 'Operação Mensal']",
+        eyebrow: "MANUTENÇÃO",
+        nome: "Manutenção Mensal",
         descricao:
-          "[Frase explicando o que a mensalidade cobre.]",
-        valor: "R$ [valor]",
+          "Tudo que mantém os cinco agentes rodando, evoluindo e sempre atualizados.",
+        valor: "R$ 1.799",
         periodo: "/mês",
         rotuloValor: "mensalidade fixa",
         destaque: true,
         itens: [
-          "[Item recorrente 1]",
-          "[Item recorrente 2]",
-          "[Item recorrente 3]",
-          "[Item recorrente 4]",
-          "[Item recorrente 5]",
-          "[Item recorrente 6]",
+          "Monitoramento e correção de falhas dos cinco agentes",
+          "Atualização de APIs e integrações, incluindo CRM e canal de atendimento",
+          "Melhoria contínua dos agentes com base no feedback direto dos vendedores",
+          "Otimização de velocidade de resposta e do banco de dados",
+          "Atualização da base com produtos, políticas e argumentos novos",
+          "Pequenas melhorias e novas funcionalidades dentro do escopo já acordado",
+          "Canal direto pra dúvidas e demandas, com relatório mensal de uso e desempenho",
         ],
         observacao:
-          "[Asterisco com qualquer ressalva importante, ex: custos cobrados à parte.]",
+          "Cobre manutenção e evolução dentro do escopo entregue. Funcionalidades fora do escopo original são orçadas à parte.",
       },
     ],
   },
 
   cta: {
     eyebrow: "PRÓXIMO PASSO",
-    titulo: "[CTA — primeira parte]",
-    tituloDestaque: "[CTA — parte com destaque]",
+    titulo: "Bora tirar o comercial",
+    tituloDestaque: "da cabeça do vendedor?",
     descricao:
-      "[Frase de fechamento que reforça o ganho e convida à ação.]",
+      "Proposta com validade de 15 dias. Qualquer ponto do escopo pode ser ajustado antes da assinatura, é só chamar que a gente alinha.",
     botaoLabel: "Falar no WhatsApp",
-    // WhatsApp da GrowthHub: as propostas são encaminhadas para este número.
-    botaoLink: "https://wa.me/5521991083870?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta.",
+    botaoLink:
+      "https://wa.me/554991663853?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta%20da%20Rainoah.",
   },
 
   footer: {
     logoSrc: logo,
     siteUrl: "https://methodgrowthhub.com.br",
     siteLabel: "methodgrowthhub.com.br",
-    nota: "GrowthHub · Tecnologia e automação sob medida para clínicas e negócios.",
+    nota: "Desenvolvido por Method Growth Hub · Tecnologia e automação sob medida para operações comerciais.",
   },
 };

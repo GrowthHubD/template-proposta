@@ -45,7 +45,7 @@ export const JornadaSection = ({ data }: Props) => {
       <div className="relative z-10">
         <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent hidden lg:block" />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {data.etapas.map((etapa, index) => (
             <motion.div
               key={etapa.numero}
@@ -53,7 +53,7 @@ export const JornadaSection = ({ data }: Props) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative flex flex-col items-center text-center group glass-dark p-8 rounded-[2rem] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-premium"
+              className="relative flex w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] flex-col items-center text-center group glass-dark p-8 rounded-[2rem] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-premium"
             >
               <div className="absolute inset-0 bg-primary/5 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
