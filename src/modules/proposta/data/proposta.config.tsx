@@ -146,7 +146,7 @@ const TreinamentoMockup = () => (
       <div className="rounded-xl bg-white/5 border border-white/10 p-4">
         <div className="flex items-center justify-between mb-1.5">
           <p className="text-xs font-medium text-foreground/85">Treinamento 01 · Sistema</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Semana 5</span>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Mês 2</span>
         </div>
         <p className="text-[11px] text-muted-foreground leading-relaxed">
           Painel de gestão, score de negociação e relatório gerencial
@@ -382,11 +382,11 @@ export const proposta: PropostaConfig = {
   },
 
   jornada: {
-    eyebrow: "IMPLEMENTAÇÃO EM 5 SEMANAS",
-    titulo: "Cada semana entrega algo",
+    eyebrow: "IMPLEMENTAÇÃO EM 2 MESES",
+    titulo: "Cada etapa entrega algo",
     tituloDestaque: "funcionando e validado pelo time",
     subtitulo:
-      "Sem grande virada de chave no fim. Só entrega validada, semana após semana.",
+      "Sem grande virada de chave no fim. Só entrega validada, etapa após etapa.",
     etapas: [
       {
         numero: 1,
@@ -459,7 +459,7 @@ export const proposta: PropostaConfig = {
         eyebrow: "IMPLEMENTAÇÃO",
         nome: "Setup dos Quatro Agentes",
         descricao:
-          "Mapeamento do processo, construção dos quatro agentes e ativação assistida, em 5 semanas.",
+          "Mapeamento do processo, construção dos quatro agentes e ativação assistida, em 2 meses.",
         valor: "R$ 6.997",
         periodo: "pagamento único",
         rotuloValor: "implementação completa",
