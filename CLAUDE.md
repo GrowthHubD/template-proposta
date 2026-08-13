@@ -26,9 +26,46 @@ Antes de escrever qualquer linha, garanta que você tem:
 - **Angle**: o sistema é pra **vender mais** (foco em conversão) ou pra **organizar internamente** (foco em produção/relatórios)? **Isso muda toda a copy** — pergunte explicitamente.
 - **Prazo**: 30 / 60 / 90 dias?
 - **Preço**: setup + mensalidade. Tem desconto à vista? Parcelamento?
+- **Metodologia de preço**: Padrão (um valor por plano) ou Oportunidade/Protagonista
+  (escassez por janela de decisão)? **Pergunte sempre, não assuma.** Ver fórmula completa
+  na seção "Metodologia de preço" abaixo.
 - **CTA**: número de WhatsApp, link de agendamento.
 
 Não chute. Pergunte com `AskUserQuestion` (1 a 4 questões por vez, multipla escolha sempre que possível).
+
+### 2.1 Metodologia de preço (decidir ANTES de preencher `precos`)
+
+Existem duas formas de estruturar `precos.planos`. Pergunte ao usuário qual usar; nunca
+assuma a B silenciosamente.
+
+**A. Padrão** (default): um valor por plano, com `valor` + `periodo` (`"/mês"` ou
+`"à vista"`). Use quando não há apresentação ao vivo ou o cliente já decidiu.
+
+**B. Oportunidade / Protagonista** (escassez por tempo de decisão): dois planos lado a
+lado, mesmo escopo e mesmos `itens`, preço diferente pela janela de decisão. Só faz
+sentido em proposta apresentada ao vivo (call/reunião); não usar em proposta enviada só
+por link.
+
+- **Oportunidade** (`destaque: true`): preço padrão, para quem decide durante a própria
+  call. `eyebrow` no estilo `"OPORTUNIDADE · DECISÃO NESTA CALL"`.
+- **Protagonista** (`destaque: false`): mesmo escopo, para quem decide depois.
+  **Valor à vista = valor à vista da Oportunidade × 1,3** (30% acima, sempre). `eyebrow`
+  no estilo `"PROTAGONISTA · DECISÃO FORA DA CALL"`.
+- **Parcelamento em 12x, nos dois planos**: **parcela = valor à vista ÷ 10.** Isso
+  embute automaticamente o equivalente a duas parcelas extras no total parcelado
+  (12 × parcela = valor à vista + 2 × parcela) para cobrir as taxas da operadora do
+  cartão, sem precisar calcular isso à parte.
+- Preencha os campos opcionais `parcelamento` (ex: `"12x de R$ 599,70"`) e
+  `parcelamentoNota` (ex: `"no cartão, com as taxas da operadora por conta do
+  parcelamento"`) em `PrecoPlano` — o componente já renderiza o bloco "12x... OU
+  valor à vista" automaticamente quando `parcelamento` está preenchido.
+
+Exemplo (valor à vista Oportunidade = R$ 5.997,00):
+- Oportunidade: `parcelamento: "12x de R$ 599,70"`, `valor: "R$ 5.997,00"`.
+- Protagonista: 5.997 × 1,3 = R$ 7.796,10 → `parcelamento: "12x de R$ 779,61"`,
+  `valor: "R$ 7.796,10"`.
+
+Detalhe completo em [`docs/playbook.md`](./docs/playbook.md).
 
 ### 3. Carregue a skill `ui-ux-pro-max` ANTES de escrever copy ou mockup
 Ela define o padrão visual, a regra de copy (sem travessões, voz ativa, etc) e os snippets de mockup. **Não invente padrão paralelo.**
