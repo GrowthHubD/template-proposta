@@ -506,7 +506,7 @@ export const proposta: PropostaConfig = {
       "Proposta com validade de 15 dias. Qualquer ponto do escopo pode ser ajustado antes da assinatura, é só chamar que a gente alinha.",
     botaoLabel: "Falar no WhatsApp",
     botaoLink:
-      "https://wa.me/554991663853?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta%20da%20Rainoah.",
+      "https://wa.me/5521991083870?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta.",
   },
 
   footer: {
