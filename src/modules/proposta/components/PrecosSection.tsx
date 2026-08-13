@@ -44,6 +44,21 @@ const PlanoCard = ({ plano, delay = 0 }: CardProps) => {
         </p>
 
         <div className="mb-10">
+          {plano.parcelamento && (
+            <div className="mb-6">
+              <div className="text-2xl font-heading font-bold text-foreground tracking-tight">
+                {plano.parcelamento}
+              </div>
+              {plano.parcelamentoNota && (
+                <div className="text-xs text-muted-foreground font-light mt-1">
+                  {plano.parcelamentoNota}
+                </div>
+              )}
+              <div className="text-[10px] font-bold tracking-widest uppercase text-primary/60 mt-4">
+                OU
+              </div>
+            </div>
+          )}
           <div className="text-5xl font-heading font-bold text-foreground tracking-tighter">
             {plano.valor}
             {plano.periodo && (

@@ -97,6 +97,8 @@ export interface PrecoPlano {
   itens: string[];
   observacao?: string;
   destaque?: boolean;
+  parcelamento?: string;
+  parcelamentoNota?: string;
 }
 
 export interface PrecosData {
