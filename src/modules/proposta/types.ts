@@ -94,6 +94,8 @@ export interface PrecoPlano {
   valor: string;
   periodo?: string;
   rotuloValor: string;
+  setupValor?: string;
+  setupCondicoes?: string;
   itens: string[];
   observacao?: string;
   destaque?: boolean;

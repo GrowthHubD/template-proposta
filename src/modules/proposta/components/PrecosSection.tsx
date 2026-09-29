@@ -26,7 +26,7 @@ const PlanoCard = ({ plano, delay = 0 }: CardProps) => {
       }
     >
       {isDestaque && (
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -mr-32 -mt-32" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/15 blur-[100px] rounded-full -mr-32 -mt-32" />
       )}
       <div className="relative">
         <div
@@ -44,6 +44,13 @@ const PlanoCard = ({ plano, delay = 0 }: CardProps) => {
         </p>
 
         <div className="mb-10">
+          {plano.setupValor && (
+            <div className="mb-6 pb-6 border-b border-white/10">
+              <p className="text-xs text-muted-foreground mb-2">Setup · implantação</p>
+              <p className="text-3xl font-heading font-bold text-foreground">{plano.setupValor}</p>
+              {plano.setupCondicoes && <p className="text-sm text-primary mt-3 leading-relaxed">{plano.setupCondicoes}</p>}
+            </div>
+          )}
           {plano.parcelamento && (
             <div className="mb-6">
               <div className="text-2xl font-heading font-bold text-foreground tracking-tight">
@@ -99,8 +106,8 @@ const PlanoCard = ({ plano, delay = 0 }: CardProps) => {
             <div
               className={
                 isDestaque
-                  ? "text-[10px] text-muted-foreground/60 p-4 border border-white/5 rounded-2xl italic leading-relaxed"
-                  : "text-[11px] text-primary/80 bg-primary/5 rounded-2xl p-4 border border-primary/10 font-medium"
+                  ? "text-xs text-muted-foreground p-4 border border-white/10 rounded-2xl leading-relaxed"
+                  : "text-xs text-muted-foreground bg-primary/5 rounded-2xl p-4 border border-primary/10"
               }
             >
               {plano.observacao}
@@ -114,7 +121,7 @@ const PlanoCard = ({ plano, delay = 0 }: CardProps) => {
 
 export const PrecosSection = ({ data }: Props) => {
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto overflow-hidden">
+    <section id="investimento" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

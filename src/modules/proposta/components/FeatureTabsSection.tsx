@@ -22,7 +22,7 @@ const FeatureMockupFallback = ({ tab }: { tab: FeatureTab }) => (
 
 export const FeatureTabsSection = ({ data }: Props) => {
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto space-y-32 sm:space-y-48">
+    <section className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto space-y-32 sm:space-y-48 overflow-x-clip">
       {data.tabs.map((tab, i) => {
         const Icon = tab.icone;
         return (

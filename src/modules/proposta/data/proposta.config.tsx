@@ -1,518 +1,108 @@
-import {
-  Target,
-  Lightbulb,
-  FileText,
-  HelpCircle,
-  TrendingUp,
-  BarChart3,
-  Link2,
-  ArrowRight,
-  Clock,
-  GraduationCap,
-  Video,
-  Wrench,
-} from "lucide-react";
-import logo from "@/assets/logo-growthhub.png";
+import { MessageCircle, Mic, UserRoundCheck, RotateCcw, Smartphone, Settings2, Target, Lightbulb, Check, AudioLines } from "lucide-react";
 import type { PropostaConfig } from "../types";
+import marca from "@/assets/ugo-celulares.png";
+import catalogo from "@/assets/previa-catalogo.png";
+import painel from "@/assets/previa-painel.png";
 
-/**
- * FONTE ÚNICA DE CONTEÚDO DA PROPOSTA.
- *
- * Proposta comercial: Rainoah (contato Julio), 4 agentes de IA para o comercial.
- * Conteúdo migrado de uma proposta de referência já existente, mantendo os
- * entregáveis e adaptando à identidade visual padrão do template (Method GrowthHub).
- */
-
-const DocMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <div className="w-2 h-2 rounded-full bg-red-500/80" />
-      <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
-      <div className="w-2 h-2 rounded-full bg-green-500/80" />
-      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Registro automático
-      </p>
+const ConversaMockup = () => (
+  <figure className="glass-dark rounded-3xl overflow-hidden border border-primary/20">
+    <div className="flex items-center gap-3 p-5 border-b border-white/10">
+      <MessageCircle className="w-6 h-6 text-primary" />
+      <div><p className="font-medium text-sm">Ugo Celulares</p><p className="text-xs text-muted-foreground">Assistente virtual</p></div>
     </div>
-    <div className="grid grid-cols-2 gap-4 items-stretch">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4 flex flex-col justify-center">
-        <p className="text-[9px] uppercase tracking-widest text-muted-foreground/60 mb-2">Call recebida</p>
-        <p className="text-xs text-foreground/70 leading-relaxed">
-          &quot;Distribuidora Sul pediu desconto pra pedido grande da linha Reflex, falou que fecha até sexta&quot;
-        </p>
+    <div className="p-5 sm:p-6 space-y-4 text-sm leading-relaxed">
+      <div className="ml-8 p-4 rounded-2xl rounded-tr-sm bg-white/10">
+        <div className="flex items-center gap-3"><Mic className="w-4 h-4" /><AudioLines className="w-24 h-6 text-foreground/70" /><span className="text-xs">0:08</span></div>
+        <p className="mt-2 text-xs text-foreground/70">“Oi! Estou procurando um celular com câmera boa.”</p>
       </div>
-      <div className="flex items-center justify-center">
-        <ArrowRight className="w-5 h-5 text-primary/60" />
-      </div>
+      <div className="mr-6 p-4 rounded-2xl rounded-tl-sm bg-primary/15 border border-primary/20">Oi! Sou o assistente virtual da Ugo Celulares. Você prefere alguma marca? E qual faixa de valor tem em mente?</div>
+      <div className="ml-8 p-4 rounded-2xl rounded-tr-sm bg-white/10">Pode ser Samsung. Quero ver as opções.</div>
+      <div className="mr-6 p-4 rounded-2xl rounded-tl-sm bg-primary/15 border border-primary/20"><div className="flex items-center gap-3"><AudioLines className="w-24 h-6 text-primary" /><span className="text-xs">Resposta em áudio</span></div><p className="mt-2 text-xs text-foreground/70">O agente entende a mensagem e continua a conversa.</p></div>
+      <div className="flex items-center gap-2 text-xs text-muted-foreground pt-2"><Check className="w-4 h-4 text-primary" /> Interesse identificado para a equipe da loja</div>
     </div>
-    <div className="mt-4 rounded-xl bg-primary/10 border border-primary/30 p-4">
-      <p className="text-[9px] uppercase tracking-widest text-primary mb-2">Registro estruturado</p>
-      <div className="space-y-1.5 text-[11px] text-foreground/85">
-        <p><span className="text-muted-foreground">Conta:</span> Distribuidora Sul</p>
-        <p><span className="text-muted-foreground">Interesse:</span> Linha Reflex, pedido grande</p>
-        <p><span className="text-muted-foreground">Próximo passo:</span> Enviar tabela de desconto até 6ª</p>
-      </div>
-    </div>
-  </div>
+    <figcaption className="px-5 pb-5 text-xs text-muted-foreground">Conversa ilustrativa. O roteiro será adaptado à loja.</figcaption>
+  </figure>
 );
 
-const AuxilioMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <div className="w-2 h-2 rounded-full bg-red-500/80" />
-      <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
-      <div className="w-2 h-2 rounded-full bg-green-500/80" />
-      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Copiloto Rainoah
-      </p>
-    </div>
-    <div className="space-y-3">
-      <div className="rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 p-3 max-w-[85%]">
-        <p className="text-xs text-foreground/75">Qual a diferença entre a Reflex e a Bota Trekking pro lojista?</p>
-      </div>
-      <div className="rounded-2xl rounded-tr-sm bg-primary/10 border border-primary/30 p-3 max-w-[90%] ml-auto">
-        <p className="text-xs text-foreground/90 leading-relaxed">
-          Reflex é eletroestimulador, indicado pra dor localizada. Bota Trekking é compressão pra pernas cansadas.
-          Faixa de desconto pra lojista: até 12% em pedido fechado.
-        </p>
-      </div>
-    </div>
-  </div>
-);
-
-const ScoreMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <TrendingUp className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Score de negociação
-      </p>
-    </div>
-    <div className="space-y-3">
+const FollowupMockup = () => (
+  <figure className="glass-dark rounded-3xl p-6 sm:p-8 border border-primary/20">
+    <div className="flex items-center gap-3 mb-7"><RotateCcw className="w-5 h-5 text-primary" /><p className="font-medium">Uma conversa com próximo passo</p></div>
+    <ol className="space-y-6">
       {[
-        { conta: "Distribuidora Sul", nota: "92", status: "Quente", cor: "text-primary" },
-        { conta: "Ortopedia Center", nota: "68", status: "Andamento", cor: "text-foreground/70" },
-        { conta: "Loja Vitta", nota: "24", status: "Risco", cor: "text-destructive/80" },
-      ].map((linha) => (
-        <div key={linha.conta} className="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-4 py-2.5">
-          <span className="text-xs text-foreground/80">{linha.conta}</span>
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-bold text-foreground">{linha.nota}</span>
-            <span className={`text-[9px] font-bold uppercase tracking-widest ${linha.cor}`}>{linha.status}</span>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
+        { numero: "01", titulo: "O cliente demonstrou interesse", texto: "O agente identifica o aparelho e a preferência informada." },
+        { numero: "02", titulo: "A conversa ficou sem resposta", texto: "O retorno segue os intervalos e limites combinados com a loja." },
+        { numero: "03", titulo: "O agente retoma o contato", texto: "“Oi! Quer continuar vendo as opções de celular?”" },
+      ].map((etapa) => <li key={etapa.numero} className="flex gap-4"><span className="text-primary text-sm font-medium pt-0.5">{etapa.numero}</span><div><p className="text-sm font-medium mb-1">{etapa.titulo}</p><p className="text-sm text-muted-foreground leading-relaxed">{etapa.texto}</p></div></li>)}
+    </ol>
+    <figcaption className="mt-7 pt-5 border-t border-white/10 text-xs text-muted-foreground">Fluxo ilustrativo. O follow-up para quando o cliente pede ou a equipe assume.</figcaption>
+  </figure>
 );
 
-const RelatorioMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <BarChart3 className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Resumo de hoje
-      </p>
-    </div>
-    <div className="grid grid-cols-3 gap-3 mb-4">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-        <p className="text-lg font-bold text-foreground">14</p>
-        <p className="text-[8px] uppercase tracking-widest text-muted-foreground mt-1">Avançaram</p>
-      </div>
-      <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-        <p className="text-lg font-bold text-foreground">5</p>
-        <p className="text-[8px] uppercase tracking-widest text-muted-foreground mt-1">Travaram</p>
-      </div>
-      <div className="rounded-xl bg-primary/10 border border-primary/30 p-3 text-center">
-        <p className="text-lg font-bold text-primary">3</p>
-        <p className="text-[8px] uppercase tracking-widest text-primary/80 mt-1">Críticas</p>
-      </div>
-    </div>
-    <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
-      <Clock className="w-3 h-3" />
-      <span>Enviado às 8h todo dia</span>
-    </div>
-  </div>
-);
-
-const TreinamentoMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <GraduationCap className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Agenda de treinamento
-      </p>
-    </div>
-    <div className="space-y-3">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Treinamento 01 · Sistema</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Mês 2</span>
-        </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Painel de gestão, score de negociação e relatório gerencial
-        </p>
-      </div>
-      <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/90">Treinamento 02 · Agentes de IA</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Pós entrega</span>
-        </div>
-        <p className="text-[11px] text-foreground/80 leading-relaxed">
-          Como usar o copiloto comercial e o painel de gestão no dia a dia
-        </p>
-      </div>
-    </div>
-    <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
-      <Video className="w-3 h-3" />
-      <span>Sessões gravadas pro time rever</span>
-    </div>
-  </div>
-);
-
-const ManutencaoMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <Wrench className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Changelog do mês
-      </p>
-    </div>
-    <div className="space-y-3">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Feedback do vendedor</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Aplicado</span>
-        </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Ajuste no argumento de desconto pra linha Reflex
-        </p>
-      </div>
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Performance do banco de dados</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Otimizado</span>
-        </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Consulta de histórico mais rápida pro copiloto responder na hora
-        </p>
-      </div>
-      <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/90">Integração CRM</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Atualizada</span>
-        </div>
-        <p className="text-[11px] text-foreground/80 leading-relaxed">
-          API sincronizada com a versão mais recente, sem parar o sistema
-        </p>
-      </div>
-    </div>
-  </div>
+const PreviaImagem = ({ src, alt, legenda }: { src: string; alt: string; legenda: string }) => (
+  <figure className="space-y-4">
+    <a href={src} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-2xl border border-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4" aria-label={`Ampliar: ${alt}`}>
+      <img src={src} alt={alt} width={1100} height={860} loading="lazy" className="w-full h-auto" />
+    </a>
+    <figcaption className="text-xs text-muted-foreground leading-relaxed">{legenda} Clique na imagem para ampliar.</figcaption>
+  </figure>
 );
 
 export const proposta: PropostaConfig = {
   hero: {
-    badge: "PROPOSTA COMERCIAL · JULIO · RAINOAH",
-    titulo: "Visibilidade, controle e recompra",
-    tituloDestaque: "para o comercial da Rainoah",
-    subtitulo:
-      "Uma rede de distribuidores em todo o Brasil gera muita conversa e pouco registro. Quatro agentes de IA cuidam do resto.",
-    logoSrc: logo,
-    logoAlt: "GrowthHub",
-    ctaLabel: "Ver como funciona",
-    scrollTargetId: "momento-atual",
+    badge: "PROPOSTA COMERCIAL PARA UGO CELULARES",
+    titulo: "A conversa começa no Zap.",
+    tituloDestaque: "A próxima venda também.",
+    subtitulo: "Duas opções para receber seus leads: um agente de IA no WhatsApp ou o agente com catálogo digital e painel administrador editável.",
+    logoSrc: marca, logoAlt: "Ugo Celulares",
+    ctaLabel: "Comparar as duas opções", scrollTargetId: "investimento",
   },
-
-  marquee: {
-    items: [
-      "4 AGENTES DE IA",
-      "REGISTRO AUTOMÁTICO",
-      "COPILOTO DE VENDAS",
-      "SCORE DE NEGOCIAÇÃO",
-      "RELATÓRIO DIÁRIO",
-      "TUDO NO CRM ATUAL",
-    ],
-  },
-
+  marquee: { items: ["AGENTE NO WHATSAPP", "ENTENDE E ENVIA ÁUDIO", "QUALIFICAÇÃO DE LEADS", "FOLLOW-UP AUTOMÁTICO", "CATÁLOGO NA OPÇÃO 2", "PAINEL EDITÁVEL"] },
   momentoAtual: {
-    eyebrow: "O CENÁRIO HOJE",
-    titulo: "Trinta anos de produto resolvido, comercial que não escala",
-    subtitulo:
-      "A Rainoah tem parque fabril e linha completa de massageadores. A rede de distribuidores no Brasil inteiro ainda depende de WhatsApp e memória.",
-    desafio: {
-      titulo: "Como é hoje",
-      icone: Target,
-      items: [
-        "O que foi falado se perde: histórico de call e negociação vive só no WhatsApp e na cabeça do vendedor.",
-        "O vendedor responde sozinho: dúvida de voltagem, modelo ou prazo vira consulta interna que trava a negociação.",
-        "Ninguém sabe como está cada negócio: sem critério objetivo, negociação parada parece igual a negociação quente.",
-      ],
-    },
-    solucao: {
-      titulo: "Como passa a ser",
-      icone: Lightbulb,
-      items: [
-        "Cada interação vira resumo automático, com dores, objeções e próximo passo já registrados.",
-        "O agente de auxílio comercial responde na hora, com o argumento que já funcionou antes.",
-        "Cada negociação recebe uma nota de 0 a 100. A gestão age enquanto o negócio ainda existe.",
-      ],
-    },
+    eyebrow: "DO PRIMEIRO OI AO INTERESSE DE COMPRA",
+    titulo: "Cada lead merece uma conversa.",
+    subtitulo: "A proposta cuida da recepção e das dúvidas iniciais, para a equipe da Ugo Celulares concentrar atenção nas negociações.",
+    desafio: { titulo: "O desafio do atendimento manual", icone: Target, items: ["Responder perguntas sobre modelos, valores e condições enquanto atende outros clientes.", "Ouvir cada áudio e entender o que a pessoa está buscando.", "Lembrar de retomar conversas que ficaram sem resposta."] },
+    solucao: { titulo: "O agente entra para ajudar", icone: Lightbulb, items: ["Recebe os leads no WhatsApp e responde com as informações aprovadas pela loja.", "Entende mensagens de voz, responde por texto ou áudio e identifica o interesse.", "Faz follow-up e encaminha para a equipe quando a conversa precisa de uma pessoa."] },
   },
-
   ecossistema: {
-    eyebrow: "OS QUATRO AGENTES",
-    titulo: "Um agente pra cada etapa do comercial",
-    subtitulo:
-      "Todos operam sobre o CRM que a Rainoah já usa. Nenhum sistema novo para o time aprender.",
+    eyebrow: "INCLUSO NAS DUAS OPÇÕES", titulo: "Um agente. A conversa inteira.",
+    subtitulo: "Da recepção ao retorno, com linguagem e regras de atendimento adaptadas à Ugo Celulares.",
     pilares: [
-      {
-        icone: FileText,
-        titulo: "Documentação automática",
-        descricao: "Transforma cada interação em resumo com dores, objeções e próximo passo.",
-      },
-      {
-        icone: HelpCircle,
-        titulo: "Auxílio comercial",
-        descricao: "Responde dúvidas de produto e política e sugere argumento de venda na hora.",
-      },
-      {
-        icone: TrendingUp,
-        titulo: "Score de negociação",
-        descricao: "Nota de 0 a 100 por negociação, considerando etapas, tempo e qualidade do registro.",
-      },
-      {
-        icone: BarChart3,
-        titulo: "Relatório gerencial",
-        descricao: "Resumo diário do que avançou, travou e precisa de decisão, sem cobrar planilha de ninguém.",
-      },
-      {
-        icone: Link2,
-        titulo: "Fundação única",
-        descricao: "Tudo roda integrado ao CRM que a Rainoah já usa, sem sistema novo pra aprender.",
-      },
+      { icone: MessageCircle, titulo: "Recepção no WhatsApp", descricao: "Atende quem chega pelo Zap e inicia a conversa sobre o que o cliente procura." },
+      { icone: Mic, titulo: "Entende e envia áudio", descricao: "Compreende mensagens de voz e pode responder em áudio, além de texto." },
+      { icone: UserRoundCheck, titulo: "Qualificação dos leads", descricao: "Identifica modelo desejado, preferências e faixa de investimento informada." },
+      { icone: RotateCcw, titulo: "Follow-up automático", descricao: "Retoma conversas conforme a cadência combinada, respeitando pedidos de parada." },
+      { icone: Smartphone, titulo: "Informações da loja", descricao: "Responde dúvidas sobre aparelhos e condições com base no conteúdo fornecido." },
+      { icone: Settings2, titulo: "Passagem para a equipe", descricao: "Encaminha negociações e dúvidas que precisam de atendimento humano." },
     ],
   },
-
-  featureTabs: {
-    tabs: [
-      {
-        label: "DOCUMENTAÇÃO",
-        icone: FileText,
-        titulo: "Documentação automática pra SDRs",
-        descricao:
-          "Cada call, cada conversa de lojista e cada negociação de marca própria vira registro, sem depender da memória do vendedor.",
-        itens: [
-          "Resumo objetivo com dores, objeções e próximo passo",
-          "Preenche automaticamente perfil, região e interesse do lead",
-          "Gera follow-up sugerido já escrito, no tom da Rainoah",
-          "Mantém histórico contínuo por conta",
-        ],
-        mockup: <DocMockup />,
-      },
-      {
-        label: "AUXÍLIO COMERCIAL",
-        icone: HelpCircle,
-        titulo: "Um copiloto pra cada vendedor",
-        descricao:
-          "Vendedor novo produz como vendedor antigo, em semanas e não em meses. O agente responde antes que a dúvida trave a negociação.",
-        itens: [
-          "Responde dúvidas de produto, voltagem, modelo e garantia",
-          "Consulta a política comercial: faixas de desconto e condições",
-          "Sugere argumento de quebra de objeção com base no que já funcionou",
-          "Monta rascunho de proposta e mensagem",
-        ],
-        mockup: <AuxilioMockup />,
-      },
-      {
-        label: "SCORE DE PROCESSO",
-        icone: TrendingUp,
-        titulo: "Uma nota pra cada negociação",
-        descricao:
-          "A gestão passa a agir sobre a negociação enquanto ela ainda existe, não depois que o cliente já sumiu.",
-        itens: [
-          "Nota de 0 a 100 considerando etapas, tempo de resposta e qualidade do registro",
-          "Aponta etapas puladas: qualificação incompleta, proposta sem diagnóstico",
-          "Sinaliza risco de perda antes do cliente sumir",
-          "Painel de gestão com nota média e ranking por vendedor e região",
-        ],
-        mockup: <ScoreMockup />,
-      },
-      {
-        label: "RELATÓRIO GERENCIAL",
-        icone: BarChart3,
-        titulo: "Gestão comercial em cinco minutos por dia",
-        descricao:
-          "Resumo diário do que avançou, do que travou e do que precisa de decisão hoje, sem cobrar planilha de ninguém.",
-        itens: [
-          "Resumo diário: o que avançou, o que travou e o que precisa de decisão",
-          "Destaque das três contas mais críticas do dia",
-          "Fechamento semanal com evolução de nota e desempenho",
-          "Alerta imediato para contas grandes em risco",
-        ],
-        mockup: <RelatorioMockup />,
-      },
-      {
-        label: "TREINAMENTO",
-        icone: GraduationCap,
-        titulo: "Dois treinamentos pra destravar o time",
-        descricao:
-          "Depois da ativação, o time comercial recebe dois treinamentos ao vivo: um pra dominar o sistema, outro pra tirar o máximo dos quatro agentes no dia a dia.",
-        itens: [
-          "Treinamento 1: uso do sistema e do painel de gestão",
-          "Treinamento 2: como tirar o máximo de cada agente",
-          "Sessões gravadas, disponíveis pro time rever quando quiser",
-          "Espaço aberto pra dúvidas depois da virada de chave",
-        ],
-        mockup: <TreinamentoMockup />,
-      },
-      {
-        label: "MANUTENÇÃO",
-        icone: Wrench,
-        titulo: "Manutenção pensada pra evoluir, não só sustentar",
-        descricao:
-          "Todo mês o sistema fica mais rápido e mais afiado. Melhoria entra a partir do feedback real do time comercial, não só quando algo quebra.",
-        itens: [
-          "Melhoria contínua com base no feedback direto dos vendedores",
-          "Otimização de velocidade de resposta e do banco de dados",
-          "Atualização de APIs e integrações sempre que a Rainoah mudar de ferramenta",
-          "Pequenas melhorias e novas funcionalidades dentro do escopo já acordado",
-        ],
-        mockup: <ManutencaoMockup />,
-      },
-    ],
-  },
-
+  featureTabs: { tabs: [
+    { label: "OPÇÕES 1 E 2", icone: MessageCircle, titulo: "O cliente fala. O agente entende.", descricao: "Um agente de conversação para receber os leads da Ugo Celulares no WhatsApp. Ele conduz o primeiro atendimento com naturalidade e prepara a conversa para a equipe.", itens: ["Recebe mensagens de texto e áudio", "Envia respostas por texto e áudio", "Identifica o interesse de compra", "Segue as informações aprovadas pela loja"], mockup: <ConversaMockup /> },
+    { label: "OPÇÕES 1 E 2", icone: RotateCcw, titulo: "O contato não termina no primeiro oi.", descricao: "Quando a conversa fica parada, o agente pode retomar o contato. A frequência, os horários e o limite de tentativas serão definidos com a loja.", itens: ["Retorno contextualizado", "Cadência de follow-up configurável", "Interrupção quando o cliente solicitar", "Encaminhamento para atendimento humano"], mockup: <FollowupMockup /> },
+    { label: "EXCLUSIVO DA OPÇÃO 2", icone: Smartphone, titulo: "Uma vitrine para enviar na conversa.", descricao: "Além do agente, criamos um catálogo digital para o cliente conhecer os aparelhos pelo celular e chamar a loja no WhatsApp com interesse em um produto.", itens: ["Produtos com fotos e descrições", "Preços e disponibilidade visíveis", "Navegação pelo celular", "Botão de interesse no WhatsApp"], mockup: <PreviaImagem src={catalogo} alt="Prévia do catálogo digital da Ugo Celulares com busca, categorias e aparelhos" legenda="Prévia ilustrativa do catálogo. Produtos, imagens de aparelhos e valores são demonstrativos; o visual final será validado com a loja." /> },
+    { label: "EXCLUSIVO DA OPÇÃO 2", icone: Settings2, titulo: "A loja atualiza. O catálogo acompanha.", descricao: "Um painel administrador editável para manter a vitrine em dia. A equipe poderá cadastrar aparelhos, trocar fotos e ajustar informações sem depender de uma alteração no site a cada produto.", itens: ["Cadastro e edição de produtos", "Atualização de fotos, preços e descrições", "Controle de disponibilidade", "Publicação e ocultação de produtos"], mockup: <PreviaImagem src={painel} alt="Prévia do painel administrador com lista de produtos e formulário de edição" legenda="Prévia ilustrativa do painel. Os dados são fictícios e mostram as funções propostas; não representam um sistema já implantado." /> },
+  ] },
   jornada: {
-    eyebrow: "IMPLEMENTAÇÃO EM 2 MESES",
-    titulo: "Cada etapa entrega algo",
-    tituloDestaque: "funcionando e validado pelo time",
-    subtitulo:
-      "Sem grande virada de chave no fim. Só entrega validada, etapa após etapa.",
+    eyebrow: "PRAZO DE IMPLANTAÇÃO A COMBINAR", titulo: "Da configuração", tituloDestaque: "ao primeiro atendimento.",
+    subtitulo: "O cronograma será definido com a Ugo Celulares após a escolha da opção e o alinhamento dos materiais e acessos necessários.",
     etapas: [
-      {
-        numero: 1,
-        titulo: "Imersão",
-        descricao:
-          "Duas sessões pra mapear o funil comercial real, levantamento técnico do CRM e canal de atendimento, e critérios da nota definidos.",
-      },
-      {
-        numero: 2,
-        titulo: "Fundação",
-        descricao:
-          "Base de conhecimento treinada em catálogo, política comercial e argumentos, com integração completa ao CRM que a Rainoah já usa.",
-      },
-      {
-        numero: 3,
-        titulo: "Piloto",
-        descricao:
-          "Documentação automática e auxílio comercial liberados pra um grupo piloto de vendedores, com ajustes a partir do uso real.",
-      },
-      {
-        numero: 4,
-        titulo: "Painel completo",
-        descricao:
-          "Score de negociação e relatório gerencial diário entram em operação, com painel de gestão liberado.",
-      },
-      {
-        numero: 5,
-        titulo: "Ativação",
-        descricao:
-          "Treinamento ao vivo com o time comercial, liberação dos quatro agentes pra operação inteira e acompanhamento diário na primeira semana.",
-      },
+      { numero: 1, titulo: "Alinhamento", descricao: "Definimos o tom de voz, as perguntas iniciais, as informações da loja e as regras de follow-up." },
+      { numero: 2, titulo: "Configuração", descricao: "Preparamos o agente no WhatsApp. Na opção 2, também construímos o catálogo e o painel administrador." },
+      { numero: 3, titulo: "Validação", descricao: "Testamos mensagens, áudios, retornos e encaminhamento. A loja revisa os fluxos antes da ativação." },
+      { numero: 4, titulo: "Ativação", descricao: "Colocamos o escopo aprovado em operação e orientamos a equipe sobre o uso da solução escolhida." },
     ],
   },
-
-  investimento: {
-    eyebrow: "O CUSTO DE NÃO TER",
-    titulo: "Antes e depois dos quatro agentes",
-    subtitulo:
-      "O comercial da Rainoah antes de ter registro, copiloto e controle automatizados, e depois.",
-    cenarioAtual: {
-      titulo: "Cenário Atual",
-      label: "HOJE",
-      destaque: "Comercial na memória do vendedor",
-      subtitulo: "Sem registro, sem critério",
-      items: [
-        "Histórico de negociação vive só no WhatsApp e na cabeça do vendedor",
-        "Cada dúvida de produto vira consulta interna que trava a venda",
-        "Negociação parada parece igual a negociação quente, sem critério objetivo",
-      ],
-    },
-    cenarioFuturo: {
-      titulo: "Cenário Rainoah",
-      label: "COM OS 4 AGENTES",
-      destaque: "Comercial com visibilidade total",
-      subtitulo: "Registro, copiloto e controle automatizados",
-      items: [
-        "Cada interação registrada automaticamente, com próximo passo já definido",
-        "Copiloto comercial responde dúvidas de produto e política na hora",
-        "Nota de 0 a 100 por negociação, direto no painel de gestão",
-        "Relatório gerencial pronto todo dia, sem cobrar planilha de ninguém",
-      ],
-    },
-  },
-
   precos: {
-    eyebrow: "INVESTIMENTO",
-    titulo: "Estrutura comercial",
+    eyebrow: "INVESTIMENTO", titulo: "Escolha como começar.",
     planos: [
-      {
-        eyebrow: "IMPLEMENTAÇÃO",
-        nome: "Setup dos Quatro Agentes",
-        descricao:
-          "Mapeamento do processo, construção dos quatro agentes e ativação assistida, em 2 meses.",
-        valor: "R$ 6.997",
-        periodo: "pagamento único",
-        rotuloValor: "implementação completa",
-        itens: [
-          "Mapeamento do processo comercial e construção dos quatro agentes",
-          "Base de conhecimento treinada em catálogo, política e argumentos",
-          "Integração completa com o CRM que a Rainoah já usa",
-          "Painel de gestão com nota por negociação e ranking",
-          "2 treinamentos comerciais ao vivo: uso do sistema e uso dos agentes",
-          "Ativação assistida com acompanhamento diário na primeira semana",
-        ],
-        observacao:
-          "Requer acesso ao CRM, catálogo atualizado, política comercial vigente e cerca de 2h do time comercial nas duas primeiras semanas.",
-      },
-      {
-        eyebrow: "MANUTENÇÃO",
-        nome: "Manutenção Mensal",
-        descricao:
-          "Tudo que mantém os quatro agentes rodando, evoluindo e sempre atualizados.",
-        valor: "R$ 1.799",
-        periodo: "/mês",
-        rotuloValor: "mensalidade fixa",
-        destaque: true,
-        itens: [
-          "Monitoramento e correção de falhas dos quatro agentes",
-          "Atualização de APIs e integrações, incluindo CRM e canal de atendimento",
-          "Melhoria contínua dos agentes com base no feedback direto dos vendedores",
-          "Otimização de velocidade de resposta e do banco de dados",
-          "Atualização da base com produtos, políticas e argumentos novos",
-          "Pequenas melhorias e novas funcionalidades dentro do escopo já acordado",
-          "Canal direto pra dúvidas e demandas, com relatório mensal de uso e desempenho",
-        ],
-        observacao:
-          "Cobre manutenção e evolução dentro do escopo entregue. Funcionalidades fora do escopo original são orçadas à parte.",
-      },
+      { eyebrow: "OPÇÃO 1", nome: "Agente no WhatsApp", descricao: "Para começar pela recepção e pelo acompanhamento dos leads no Zap.", valor: "R$ 900", periodo: "/mês", rotuloValor: "mensalidade", setupValor: "R$ 1.200", setupCondicoes: "Pode ser parcelado no cartão de crédito.", itens: ["Agente de conversação no WhatsApp", "Recepção e qualificação dos leads", "Compreensão e envio de áudio", "Respostas por texto com informações da loja", "Follow-up conforme regras combinadas", "Encaminhamento para a equipe da loja"], observacao: "O setup é cobrado apenas na implantação e pode ser parcelado no cartão de crédito, além da mensalidade. Esta opção contempla o agente, sem criação de catálogo ou painel administrador." },
+      { eyebrow: "OPÇÃO 2", nome: "Agente + catálogo", descricao: "Atendimento no Zap com uma vitrine digital que a própria loja pode atualizar.", valor: "R$ 950", periodo: "/mês", rotuloValor: "mensalidade", setupValor: "R$ 1.600", setupCondicoes: "Pode ser parcelado no cartão de crédito.", destaque: true, itens: ["Tudo da opção 1, incluindo áudio e follow-up", "Criação do catálogo digital para celular", "Produtos com fotos, descrição e preço", "Painel administrador editável", "Gestão de produtos e disponibilidade", "Botão de interesse pelo WhatsApp"], observacao: "O setup é cobrado apenas na implantação e pode ser parcelado no cartão de crédito, além da mensalidade. Inclui a criação do catálogo e do painel. A loja fornece fotos e informações dos produtos." },
     ],
   },
-
   cta: {
-    eyebrow: "PRÓXIMO PASSO",
-    titulo: "Bora tirar o comercial",
-    tituloDestaque: "da cabeça do vendedor?",
-    descricao:
-      "Proposta com validade de 15 dias. Qualquer ponto do escopo pode ser ajustado antes da assinatura, é só chamar que a gente alinha.",
-    botaoLabel: "Falar no WhatsApp",
-    botaoLink:
-      "https://wa.me/5521991083870?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta.",
-  },
-
-  footer: {
-    logoSrc: logo,
-    siteUrl: "https://methodgrowthhub.com.br",
-    siteLabel: "methodgrowthhub.com.br",
-    nota: "Desenvolvido por Method Growth Hub · Tecnologia e automação sob medida para operações comerciais.",
+    eyebrow: "PRÓXIMO PASSO", titulo: "Vamos preparar o WhatsApp", tituloDestaque: "da Ugo Celulares?",
+    descricao: "Escolha a opção que faz sentido para a loja. Depois, alinhamos o prazo de implantação, as condições de contratação e os materiais para começar.",
+    botaoLabel: "Conversar sobre a proposta",
+    botaoLink: "https://wa.me/5531972620661?text=" + encodeURIComponent("Olá! Quero conversar sobre a proposta para a Ugo Celulares e alinhar a melhor opção."),
   },
 };

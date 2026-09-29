@@ -13,7 +13,7 @@ export const HeroSection = ({ data }: Props) => {
   };
 
   return (
-    <section className="relative h-screen min-h-[600px] flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.4 }}
@@ -48,7 +48,7 @@ export const HeroSection = ({ data }: Props) => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="flex items-center gap-3"
           >
-            <img src={data.logoSrc} alt={data.logoAlt ?? "Logo"} className="h-10 md:h-14 w-auto" />
+            <img src={data.logoSrc} alt={data.logoAlt ?? "Logo"} className="h-24 md:h-32 w-auto rounded-2xl" />
           </motion.div>
         )}
 
@@ -87,10 +87,11 @@ export const HeroSection = ({ data }: Props) => {
         </motion.div>
       </div>
 
-      <motion.div
+      <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1.5 }}
+        type="button"
         className="absolute bottom-8 flex flex-col items-center gap-3 cursor-pointer group"
         onClick={scrollToContent}
       >
@@ -103,7 +104,7 @@ export const HeroSection = ({ data }: Props) => {
         >
           <ChevronDown className="w-5 h-5 text-primary/60 group-hover:text-primary transition-colors" />
         </motion.div>
-      </motion.div>
+      </motion.button>
     </section>
   );
 };
