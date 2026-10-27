@@ -5,6 +5,9 @@ interface Props {
   data: EcossistemaData;
 }
 
+/** Cantos de onde a luz de cada card nasce, em sequência, para os cards não ficarem idênticos. */
+const GLOWS = ["tr", "bl", "tl", "br"];
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -53,7 +56,8 @@ export const EcossistemaSection = ({ data }: Props) => {
             <motion.div
               key={i}
               variants={itemVariants}
-              className="group relative rounded-[1.5rem] glass p-8 hover:bg-white/[0.08] transition-all duration-500 hover:shadow-premium"
+              data-glow={GLOWS[i % GLOWS.length]}
+              className="group card-glow rounded-[1.5rem] p-8 hover:border-primary/30 transition-colors duration-500"
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 

@@ -63,6 +63,7 @@ Importadas de Google Fonts no topo do `index.css`.
 |---|---|
 | `.glass` | Fundo translúcido `bg-white/5` + blur + borda branca sutil |
 | `.glass-dark` | Versão mais escura, ideal para cards de hero/CTA |
+| `.card-glow` | **Card padrão das seções.** Vidro escuro + gradiente no canto + brilho `--primary` atrás (o mesmo visual do card do PRÓXIMO PASSO). O raio (`rounded-*`) e o padding vêm de quem usa |
 | `.text-gradient-primary` | Texto em gradiente roxo (use em palavras de destaque) |
 | `.text-glow-primary` | Text-shadow roxo (use em números grandes, palavras chave) |
 | `.glow-primary` | Box-shadow roxo |
@@ -92,6 +93,9 @@ Importadas de Google Fonts no topo do `index.css`.
 - **`glass`**: para cards em cima de fundos com brilho/gradiente. Adiciona profundidade.
 - **`glass-dark`**: para cards isolados, sem nada por trás. Mais legível.
 - **`bg-[#121212]` ou `bg-card`**: sólido, para listas longas onde glass distrairia.
+- **`card-glow`**: **o padrão para qualquer card de seção** (momento atual, pilares, jornada, planos, antes/depois, mockups). Não invente outro estilo de card.
+  - Para cards repetidos em grade, varie de onde a luz nasce com `data-glow="tr|bl|tl|br"` (padrão `br`). Os componentes já fazem isso em sequência (`GLOWS[i % GLOWS.length]`); em card novo, copie o padrão.
+  - Para destacar um card, some `border-primary/20` (o `card-glow` já traz `border-white/5`).
 
 ### Eyebrow
 

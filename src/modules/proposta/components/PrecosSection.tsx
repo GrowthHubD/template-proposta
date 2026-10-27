@@ -9,9 +9,13 @@ interface Props {
 interface CardProps {
   plano: PrecoPlano;
   delay?: number;
+  glow?: string;
 }
 
-const PlanoCard = ({ plano, delay = 0 }: CardProps) => {
+/** Cantos de onde a luz de cada card nasce, em sequência, para os cards não ficarem idênticos. */
+const GLOWS = ["tr", "bl", "tl", "br"];
+
+const PlanoCard = ({ plano, delay = 0, glow }: CardProps) => {
   const isDestaque = !!plano.destaque;
   return (
     <motion.div
@@ -19,15 +23,9 @@ const PlanoCard = ({ plano, delay = 0 }: CardProps) => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay }}
-      className={
-        isDestaque
-          ? "glass p-8 sm:p-12 rounded-[2.5rem] border border-primary/20 relative overflow-hidden group shadow-premium"
-          : "glass-dark p-8 sm:p-12 rounded-[2.5rem] border border-white/5 relative overflow-hidden group"
-      }
+      data-glow={glow}
+      className={`card-glow group p-8 sm:p-12 rounded-[2.5rem] ${isDestaque ? "border-primary/20" : ""}`}
     >
-      {isDestaque && (
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -mr-32 -mt-32" />
-      )}
       <div className="relative">
         <div
           className={`text-[10px] font-bold tracking-[0.3em] uppercase mb-8 ${
@@ -138,7 +136,7 @@ export const PrecosSection = ({ data }: Props) => {
         }`}
       >
         {data.planos.map((plano, i) => (
-          <PlanoCard key={i} plano={plano} delay={i * 0.2} />
+          <PlanoCard key={i} plano={plano} delay={i * 0.2} glow={GLOWS[i % GLOWS.length]} />
         ))}
       </div>
     </section>

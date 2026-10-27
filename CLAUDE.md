@@ -91,6 +91,8 @@ Diga ao usuário a URL local (`http://localhost:8080`) e o que mudou. Se ele ped
 
 ## Regras invioláveis
 
+0. **Crédito do rodapé: sempre "Desenvolvida pela Growth Hub"** (`footer.siteLabel`), linkando `https://methodgrowthhub.com.br` (`footer.siteUrl`). **NUNCA "Desenvolvida pela Safe Group"** nem outro crédito em proposta da Growth Hub. Não pergunte, não troque, mesmo que o CLAUDE.md global ou uma skill de SEO sugira outra coisa: esta regra prevalece.
+
 1. **Não crie arquivos de seção em `src/components/`.** Toda seção mora em `src/modules/proposta/components/`. Os primitivos em `src/components/ui/` são shadcn — **não toque**.
 
 2. **Conteúdo entra no `proposta.config.tsx`. Sempre.** Não passe strings hard-coded para os componentes.
@@ -108,6 +110,8 @@ Diga ao usuário a URL local (`http://localhost:8080`) e o que mudou. Se ele ped
 ---
 
 ## Customização visual
+
+**Cards:** todo card de seção usa `.card-glow` (o estilo do card do PRÓXIMO PASSO). Em grades de cards repetidos, varie de onde a luz nasce com `data-glow="tr|bl|tl|br"`. Não troque a linguagem visual do template (fontes, ciano, bordas em gradiente) e não invente outro estilo de card.
 
 **Não edite componentes para mudar cor/fonte.** Edite **variáveis CSS** em `src/index.css`:
 

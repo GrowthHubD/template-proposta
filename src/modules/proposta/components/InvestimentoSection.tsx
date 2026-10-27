@@ -37,7 +37,7 @@ export const InvestimentoSection = ({ data }: Props) => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="glass-dark p-10 rounded-[2.5rem] border border-white/5 flex flex-col group"
+          className="card-glow p-10 rounded-[2.5rem] flex flex-col group"
         >
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-xl font-heading font-bold text-foreground/60 tracking-tight">

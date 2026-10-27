@@ -7,7 +7,7 @@ interface Props {
 }
 
 const FeatureMockupFallback = ({ tab }: { tab: FeatureTab }) => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-12 min-h-[320px] flex flex-col items-center justify-center text-center">
+  <div className="card-glow rounded-3xl border-primary/20 p-12 min-h-[320px] flex flex-col items-center justify-center text-center">
     <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
       <tab.icone className="w-8 h-8 text-primary" />
     </div>
@@ -28,7 +28,7 @@ export const FeatureTabsSection = ({ data }: Props) => {
         return (
           <div
             key={i}
-            className={`grid md:grid-cols-2 gap-12 sm:gap-24 items-center ${
+            className={`grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-24 items-center ${
               i % 2 === 1 ? "md:flex-row-reverse" : ""
             }`}
           >
@@ -37,7 +37,7 @@ export const FeatureTabsSection = ({ data }: Props) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className={i % 2 === 1 ? "md:order-2" : ""}
+              className={`min-w-0 ${i % 2 === 1 ? "md:order-2" : ""}`}
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-6 h-6 bg-primary/20 rounded-md flex items-center justify-center border border-primary/30">
@@ -72,7 +72,7 @@ export const FeatureTabsSection = ({ data }: Props) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className={i % 2 === 1 ? "md:order-1" : ""}
+              className={`min-w-0 ${i % 2 === 1 ? "md:order-1" : ""}`}
             >
               <div className="relative">
                 <div

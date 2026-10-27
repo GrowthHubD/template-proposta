@@ -512,7 +512,7 @@ export const proposta: PropostaConfig = {
   footer: {
     logoSrc: logo,
     siteUrl: "https://methodgrowthhub.com.br",
-    siteLabel: "methodgrowthhub.com.br",
+    siteLabel: "Desenvolvida pela Growth Hub",
     nota: "Desenvolvido por Method Growth Hub · Tecnologia e automação sob medida para operações comerciais.",
   },
 };

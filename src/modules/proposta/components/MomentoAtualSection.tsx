@@ -20,7 +20,7 @@ const Bloco = ({ bloco, variant, delay = 0 }: BlocoProps) => {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="bg-[#121212] border border-white/5 rounded-3xl p-8 sm:p-10"
+      className="card-glow rounded-3xl p-8 sm:p-10"
     >
       <div className="flex items-center gap-3 mb-8">
         <div

@@ -21,7 +21,8 @@ Os componentes em `src/modules/proposta/components/*` já aplicam essa hierarqui
 
 ### Classes utilitárias do design system (em `src/index.css`)
 - `.glass` — fundo branco translúcido + blur. Use em cards de destaque.
-- `.glass-dark` — fundo escuro translúcido + blur. Use em cards padrão.
+- `.glass-dark` — fundo escuro translúcido + blur. Use em elementos pequenos (chips, badges, botões).
+- `.card-glow` — **o card padrão das seções**: vidro escuro, gradiente no canto e brilho `--primary` atrás (igual ao card do PRÓXIMO PASSO). Use em todo card de seção e nos mockups. Em grades, varie o canto da luz com `data-glow="tr|bl|tl|br"`. Não crie outro estilo de card.
 - `.text-gradient-primary` — texto com gradiente primary. Use em palavras-chave.
 - `.glow-primary` / `--gradient-glow` — halo primary atrás de elementos.
 - `.shadow-premium` — sombra elevada.
@@ -55,7 +56,7 @@ Defina o componente **dentro do próprio `proposta.config.tsx`** (é `.tsx`, sup
 import { Camera, Check, ArrowRight, Sparkles } from "lucide-react";
 
 const ExemploMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+  <div className="card-glow rounded-3xl border-primary/20 p-6 sm:p-8">
     {/* header */}
     <div className="flex items-center gap-2 mb-6">
       <div className="w-2 h-2 rounded-full bg-red-500/80" />
