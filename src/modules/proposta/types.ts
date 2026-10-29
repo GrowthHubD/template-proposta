@@ -114,6 +114,9 @@ export interface CTAData {
   descricao: string;
   botaoLabel: string;
   botaoLink?: string;
+  /** Caminho do PDF (ex: /pdfs/proposta-cliente.pdf). Se vier, mostra o botão Baixar PDF. */
+  pdfLink?: string;
+  pdfLabel?: string;
 }
 
 export interface FooterData {
@@ -121,6 +124,31 @@ export interface FooterData {
   siteUrl: string;
   siteLabel: string;
   nota?: string;
+}
+
+export interface DocumentoGrupo {
+  titulo: string;
+  itens: string[];
+}
+
+export interface DocumentoPlano {
+  nome: string;
+  prazo: string;
+  /** Linha curta sob o nome (ex: "Inclui tudo do Essencial, mais:"). */
+  resumo: string;
+  grupos: DocumentoGrupo[];
+}
+
+export interface DocumentoData {
+  eyebrow: string;
+  titulo: string;
+  subtitulo: string;
+  intro: string;
+  planos: DocumentoPlano[];
+  blocos: DocumentoGrupo[];
+  rodape: string;
+  /** Nome do arquivo gerado em public/pdfs (sem .pdf), usado pelo script de geração. */
+  arquivo: string;
 }
 
 export interface PropostaConfig {

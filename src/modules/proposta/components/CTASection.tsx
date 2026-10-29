@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import type { CTAData } from "../types";
 
@@ -78,6 +78,20 @@ export const CTASection = ({ data }: Props) => {
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
             </button>
           </motion.div>
+
+          {data.pdfLink && (
+            <motion.a
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              href={data.pdfLink}
+              download
+              className="mt-6 inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-foreground/85 hover:text-foreground transition-colors"
+            >
+              <Download className="w-4 h-4 text-primary" />
+              {data.pdfLabel ?? "Baixar PDF"}
+            </motion.a>
+          )}
         </div>
       </motion.div>
     </section>

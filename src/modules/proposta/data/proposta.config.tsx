@@ -1,16 +1,20 @@
 import {
   Target,
   Lightbulb,
-  FileText,
-  HelpCircle,
-  TrendingUp,
-  BarChart3,
-  Link2,
-  ArrowRight,
-  Clock,
+  LayoutGrid,
+  ScrollText,
+  Clapperboard,
+  Instagram,
+  ClipboardCheck,
+  Anchor,
+  CalendarDays,
+  Scissors,
   GraduationCap,
-  Video,
-  Wrench,
+  MessageCircle,
+  TrendingUp,
+  Trophy,
+  AlertTriangle,
+  Check,
 } from "lucide-react";
 import logo from "@/assets/logo-growthhub.png";
 import type { PropostaConfig } from "../types";
@@ -18,191 +22,263 @@ import type { PropostaConfig } from "../types";
 /**
  * FONTE ÚNICA DE CONTEÚDO DA PROPOSTA.
  *
- * Proposta comercial: Rainoah (contato Julio), 4 agentes de IA para o comercial.
- * Conteúdo migrado de uma proposta de referência já existente, mantendo os
- * entregáveis e adaptando à identidade visual padrão do template (Method GrowthHub).
+ * Proposta comercial: Vanusa, estúdio de criação de conteúdo com IA
+ * (carrosséis, roteiros, edição de vídeo, Falow integrado e agente avaliador).
  */
 
-const DocMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <div className="w-2 h-2 rounded-full bg-red-500/80" />
-      <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
-      <div className="w-2 h-2 rounded-full bg-green-500/80" />
-      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Registro automático
-      </p>
-    </div>
-    <div className="grid grid-cols-2 gap-4 items-stretch">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4 flex flex-col justify-center">
-        <p className="text-[9px] uppercase tracking-widest text-muted-foreground/60 mb-2">Call recebida</p>
-        <p className="text-xs text-foreground/70 leading-relaxed">
-          &quot;Distribuidora Sul pediu desconto pra pedido grande da linha Reflex, falou que fecha até sexta&quot;
-        </p>
-      </div>
-      <div className="flex items-center justify-center">
-        <ArrowRight className="w-5 h-5 text-primary/60" />
-      </div>
-    </div>
-    <div className="mt-4 rounded-xl bg-primary/10 border border-primary/30 p-4">
-      <p className="text-[9px] uppercase tracking-widest text-primary mb-2">Registro estruturado</p>
-      <div className="space-y-1.5 text-[11px] text-foreground/85">
-        <p><span className="text-muted-foreground">Conta:</span> Distribuidora Sul</p>
-        <p><span className="text-muted-foreground">Interesse:</span> Linha Reflex, pedido grande</p>
-        <p><span className="text-muted-foreground">Próximo passo:</span> Enviar tabela de desconto até 6ª</p>
-      </div>
-    </div>
+const MockupHeader = ({ titulo }: { titulo: string }) => (
+  <div className="flex items-center gap-2 mb-6">
+    <div className="w-2 h-2 rounded-full bg-red-500/80" />
+    <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
+    <div className="w-2 h-2 rounded-full bg-green-500/80" />
+    <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+      {titulo}
+    </p>
   </div>
 );
 
-const AuxilioMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <div className="w-2 h-2 rounded-full bg-red-500/80" />
-      <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
-      <div className="w-2 h-2 rounded-full bg-green-500/80" />
-      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Copiloto Rainoah
-      </p>
+const shell =
+  "glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8";
+
+const CarrosselMockup = () => (
+  <div className={shell}>
+    <MockupHeader titulo="Gerador de carrossel" />
+    <div className="grid grid-cols-3 gap-3">
+      {[
+        { n: "01", t: "Gancho", d: "O erro que trava seu alcance" },
+        { n: "02", t: "Dor", d: "Por que ninguém salva seus posts" },
+        { n: "03", t: "Virada", d: "A estrutura que prende até o fim" },
+      ].map((s, i) => (
+        <div
+          key={s.n}
+          className={`rounded-xl border p-3 aspect-[4/5] flex flex-col justify-between ${
+            i === 0 ? "bg-primary/10 border-primary/30" : "bg-white/5 border-white/10"
+          }`}
+        >
+          <span className="text-[9px] font-bold tracking-widest text-primary/80">{s.n}</span>
+          <div>
+            <p className="text-[9px] uppercase tracking-widest text-muted-foreground mb-1">{s.t}</p>
+            <p className="text-[11px] leading-snug text-foreground/90">{s.d}</p>
+          </div>
+        </div>
+      ))}
     </div>
-    <div className="space-y-3">
-      <div className="rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 p-3 max-w-[85%]">
-        <p className="text-xs text-foreground/75">Qual a diferença entre a Reflex e a Bota Trekking pro lojista?</p>
-      </div>
-      <div className="rounded-2xl rounded-tr-sm bg-primary/10 border border-primary/30 p-3 max-w-[90%] ml-auto">
-        <p className="text-xs text-foreground/90 leading-relaxed">
-          Reflex é eletroestimulador, indicado pra dor localizada. Bota Trekking é compressão pra pernas cansadas.
-          Faixa de desconto pra lojista: até 12% em pedido fechado.
-        </p>
-      </div>
-    </div>
+    <p className="mt-4 text-center text-[10px] uppercase tracking-[0.3em] text-primary/70">
+      7 slides · pronto pra editar e postar
+    </p>
   </div>
 );
 
-const ScoreMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <TrendingUp className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Score de negociação
-      </p>
-    </div>
+const RoteiroMockup = () => (
+  <div className={shell}>
+    <MockupHeader titulo="Roteiro de vídeo" />
     <div className="space-y-3">
       {[
-        { conta: "Distribuidora Sul", nota: "92", status: "Quente", cor: "text-primary" },
-        { conta: "Ortopedia Center", nota: "68", status: "Andamento", cor: "text-foreground/70" },
-        { conta: "Loja Vitta", nota: "24", status: "Risco", cor: "text-destructive/80" },
-      ].map((linha) => (
-        <div key={linha.conta} className="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-4 py-2.5">
-          <span className="text-xs text-foreground/80">{linha.conta}</span>
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-bold text-foreground">{linha.nota}</span>
-            <span className={`text-[9px] font-bold uppercase tracking-widest ${linha.cor}`}>{linha.status}</span>
+        { t: "0 a 3s", l: "Gancho", d: "Pare de gravar vídeo assim se quer crescer.", hi: true },
+        { t: "3 a 15s", l: "Desenvolvimento", d: "O motivo real do seu vídeo não ser entregue.", hi: false },
+        { t: "15 a 25s", l: "Prova", d: "Exemplo prático em tela.", hi: false },
+        { t: "25 a 30s", l: "CTA", d: "Comenta QUERO e eu te mando o passo a passo.", hi: false },
+      ].map((b) => (
+        <div
+          key={b.l}
+          className={`rounded-xl border px-4 py-3 ${
+            b.hi ? "bg-primary/10 border-primary/30" : "bg-white/5 border-white/10"
+          }`}
+        >
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-primary/80">{b.l}</p>
+            <p className="text-[9px] text-muted-foreground">{b.t}</p>
           </div>
+          <p className="text-[11px] text-foreground/85 leading-relaxed">{b.d}</p>
         </div>
       ))}
     </div>
   </div>
 );
 
-const RelatorioMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <BarChart3 className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Resumo de hoje
-      </p>
+const EdicaoMockup = () => (
+  <div className={shell}>
+    <MockupHeader titulo="Edição assistida por IA" />
+    <div className="rounded-xl bg-white/5 border border-white/10 p-4 mb-4">
+      <div className="flex items-center gap-1 h-10">
+        {[30, 55, 40, 80, 60, 90, 45, 70, 35, 65, 50, 85, 40, 60].map((h, i) => (
+          <div key={i} className="flex-1 rounded-sm bg-primary/50" style={{ height: `${h}%` }} />
+        ))}
+      </div>
+      <p className="mt-3 text-[10px] text-muted-foreground">Vídeo bruto · 4min 12s</p>
     </div>
-    <div className="grid grid-cols-3 gap-3 mb-4">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-        <p className="text-lg font-bold text-foreground">14</p>
-        <p className="text-[8px] uppercase tracking-widest text-muted-foreground mt-1">Avançaram</p>
+    <div className="grid grid-cols-3 gap-3 text-center">
+      {[
+        { n: "12", l: "Pausas cortadas" },
+        { n: "100%", l: "Legendado" },
+        { n: "3", l: "Cortes prontos" },
+      ].map((x) => (
+        <div key={x.l} className="rounded-xl bg-primary/10 border border-primary/30 p-3">
+          <p className="text-lg font-bold text-foreground">{x.n}</p>
+          <p className="text-[8px] uppercase tracking-widest text-primary/80 mt-1">{x.l}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const FalowMockup = () => (
+  <div className={shell}>
+    <MockupHeader titulo="Falow · Automação de comentários" />
+    <div className="space-y-3 mb-4">
+      <div className="rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 p-3 max-w-[85%]">
+        <p className="text-xs text-foreground/75">Comentário no Reel: QUERO</p>
       </div>
-      <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-        <p className="text-lg font-bold text-foreground">5</p>
-        <p className="text-[8px] uppercase tracking-widest text-muted-foreground mt-1">Travaram</p>
+      <div className="rounded-2xl rounded-tr-sm bg-primary/10 border border-primary/30 p-3 max-w-[90%] ml-auto">
+        <p className="text-xs text-foreground/90 leading-relaxed">
+          Oi! Te mandei o material no direct. Qualquer dúvida é só responder aqui.
+        </p>
       </div>
-      <div className="rounded-xl bg-primary/10 border border-primary/30 p-3 text-center">
-        <p className="text-lg font-bold text-primary">3</p>
-        <p className="text-[8px] uppercase tracking-widest text-primary/80 mt-1">Críticas</p>
-      </div>
+    </div>
+    <div className="space-y-2">
+      {[
+        { v: "Reel · Erros de gancho", n: "412 leads", Icon: Trophy, c: "text-primary" },
+        { v: "Reel · Bastidores", n: "37 leads", Icon: AlertTriangle, c: "text-destructive/80" },
+      ].map((r) => (
+        <div
+          key={r.v}
+          className="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-4 py-2.5"
+        >
+          <span className="text-xs text-foreground/80">{r.v}</span>
+          <span className={`flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest ${r.c}`}>
+            <r.Icon className="w-3 h-3" />
+            {r.n}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const AvaliadorMockup = () => (
+  <div className={shell}>
+    <MockupHeader titulo="Agente avaliador" />
+    <div className="flex items-center justify-between mb-4">
+      <p className="text-xs text-foreground/80">Carrossel · 7 slides</p>
+      <p className="text-2xl font-bold text-primary">78</p>
+    </div>
+    <div className="space-y-2">
+      {[
+        { ok: true, t: "Gancho forte no primeiro slide" },
+        { ok: false, t: "Slide 4 com texto longo demais" },
+        { ok: false, t: "CTA final sem ação clara" },
+      ].map((f) => (
+        <div
+          key={f.t}
+          className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-2.5"
+        >
+          {f.ok ? (
+            <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+          ) : (
+            <AlertTriangle className="w-4 h-4 text-destructive/80 mt-0.5 shrink-0" />
+          )}
+          <span className="text-[11px] text-foreground/80 leading-relaxed">{f.t}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const GanchosMockup = () => (
+  <div className={shell}>
+    <MockupHeader titulo="Banco de ganchos" />
+    <div className="space-y-3">
+      {[
+        { c: "Erro comum", g: "Você está errando isso em todo vídeo" },
+        { c: "Segredo", g: "Ninguém te conta isso sobre alcance" },
+        { c: "Resultado", g: "Como passei de 2 mil a 40 mil em 60 dias" },
+      ].map((x, i) => (
+        <div
+          key={x.g}
+          className={`rounded-xl border p-3 ${
+            i === 0 ? "bg-primary/10 border-primary/30" : "bg-white/5 border-white/10"
+          }`}
+        >
+          <p className="text-[9px] font-bold uppercase tracking-widest text-primary/80 mb-1">{x.c}</p>
+          <p className="text-[11px] text-foreground/85">{x.g}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const CalendarioMockup = () => (
+  <div className={shell}>
+    <MockupHeader titulo="Calendário editorial" />
+    <div className="grid grid-cols-7 gap-2 text-center mb-4">
+      {["S", "T", "Q", "Q", "S", "S", "D"].map((d, i) => (
+        <p key={i} className="text-[9px] text-muted-foreground">
+          {d}
+        </p>
+      ))}
+      {["Reel", "Carrossel", "Story", "Reel", "Carrossel", "", "Reel"].map((t, i) => (
+        <div
+          key={i}
+          className={`rounded-lg border py-3 text-[8px] uppercase tracking-wide ${
+            t ? "bg-primary/10 border-primary/30 text-primary" : "bg-white/5 border-white/10 text-transparent"
+          }`}
+        >
+          {t || "."}
+        </div>
+      ))}
     </div>
     <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
-      <Clock className="w-3 h-3" />
-      <span>Enviado às 8h todo dia</span>
+      <TrendingUp className="w-3 h-3" />
+      <span>Pauta baseada no que performou no Falow</span>
+    </div>
+  </div>
+);
+
+const CortesMockup = () => (
+  <div className={shell}>
+    <MockupHeader titulo="Cortes e legendas" />
+    <div className="rounded-xl bg-white/5 border border-white/10 p-4 mb-4">
+      <p className="text-[10px] text-muted-foreground mb-2">Vídeo longo · 18min</p>
+      <div className="h-2 rounded-full bg-white/10 relative overflow-hidden">
+        <div className="absolute left-[8%] w-[10%] h-full bg-primary/70" />
+        <div className="absolute left-[35%] w-[8%] h-full bg-primary/70" />
+        <div className="absolute left-[70%] w-[12%] h-full bg-primary/70" />
+      </div>
+    </div>
+    <div className="space-y-2">
+      {["Corte 1 · Gancho forte", "Corte 2 · Melhor trecho", "Corte 3 · Fechamento"].map((c) => (
+        <div
+          key={c}
+          className="flex items-center justify-between rounded-xl bg-primary/10 border border-primary/30 px-4 py-2.5"
+        >
+          <span className="text-[11px] text-foreground/85">{c}</span>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Legendado</span>
+        </div>
+      ))}
     </div>
   </div>
 );
 
 const TreinamentoMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <GraduationCap className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Agenda de treinamento
-      </p>
-    </div>
+  <div className={shell}>
+    <MockupHeader titulo="Onboarding" />
     <div className="space-y-3">
       <div className="rounded-xl bg-white/5 border border-white/10 p-4">
         <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Treinamento 01 · Sistema</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Mês 2</span>
+          <p className="text-xs font-medium text-foreground/85">Aula 01 · Estúdio de conteúdo</p>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Gravada</span>
         </div>
         <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Painel de gestão, score de negociação e relatório gerencial
+          Carrosséis, roteiros e edição do zero ao post
         </p>
       </div>
       <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
         <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/90">Treinamento 02 · Agentes de IA</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Pós entrega</span>
+          <p className="text-xs font-medium text-foreground/90">Aula 02 · Falow e avaliador</p>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Gravada</span>
         </div>
         <p className="text-[11px] text-foreground/80 leading-relaxed">
-          Como usar o copiloto comercial e o painel de gestão no dia a dia
-        </p>
-      </div>
-    </div>
-    <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
-      <Video className="w-3 h-3" />
-      <span>Sessões gravadas pro time rever</span>
-    </div>
-  </div>
-);
-
-const ManutencaoMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <Wrench className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Changelog do mês
-      </p>
-    </div>
-    <div className="space-y-3">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Feedback do vendedor</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Aplicado</span>
-        </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Ajuste no argumento de desconto pra linha Reflex
-        </p>
-      </div>
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Performance do banco de dados</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Otimizado</span>
-        </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Consulta de histórico mais rápida pro copiloto responder na hora
-        </p>
-      </div>
-      <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/90">Integração CRM</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Atualizada</span>
-        </div>
-        <p className="text-[11px] text-foreground/80 leading-relaxed">
-          API sincronizada com a versão mais recente, sem parar o sistema
+          Automações de comentário e como ler as métricas
         </p>
       </div>
     </div>
@@ -211,11 +287,11 @@ const ManutencaoMockup = () => (
 
 export const proposta: PropostaConfig = {
   hero: {
-    badge: "PROPOSTA COMERCIAL · JULIO · RAINOAH",
-    titulo: "Visibilidade, controle e recompra",
-    tituloDestaque: "para o comercial da Rainoah",
+    badge: "PROPOSTA COMERCIAL · VANUSA",
+    titulo: "Seu estúdio de conteúdo",
+    tituloDestaque: "com IA, do roteiro ao lead",
     subtitulo:
-      "Uma rede de distribuidores em todo o Brasil gera muita conversa e pouco registro. Quatro agentes de IA cuidam do resto.",
+      "Carrosséis, roteiros, edição de vídeo, automação no Instagram e um agente que corrige o que você errou. Tudo num só lugar.",
     logoSrc: logo,
     logoAlt: "GrowthHub",
     ctaLabel: "Ver como funciona",
@@ -224,70 +300,79 @@ export const proposta: PropostaConfig = {
 
   marquee: {
     items: [
-      "4 AGENTES DE IA",
-      "REGISTRO AUTOMÁTICO",
-      "COPILOTO DE VENDAS",
-      "SCORE DE NEGOCIAÇÃO",
-      "RELATÓRIO DIÁRIO",
-      "TUDO NO CRM ATUAL",
+      "CARROSSÉIS COM IA",
+      "ROTEIROS DE VÍDEO",
+      "EDIÇÃO ASSISTIDA",
+      "FALOW INTEGRADO",
+      "AGENTE AVALIADOR",
+      "BANCO DE GANCHOS",
+      "CALENDÁRIO EDITORIAL",
+      "CORTES E LEGENDAS",
     ],
   },
 
   momentoAtual: {
     eyebrow: "O CENÁRIO HOJE",
-    titulo: "Trinta anos de produto resolvido, comercial que não escala",
+    titulo: "Muito esforço pra produzir, pouca clareza do que funciona",
     subtitulo:
-      "A Rainoah tem parque fabril e linha completa de massageadores. A rede de distribuidores no Brasil inteiro ainda depende de WhatsApp e memória.",
+      "Criar conteúdo toma horas em ferramentas soltas, e ninguém diz com clareza o que melhorar no próximo post.",
     desafio: {
       titulo: "Como é hoje",
       icone: Target,
       items: [
-        "O que foi falado se perde: histórico de call e negociação vive só no WhatsApp e na cabeça do vendedor.",
-        "O vendedor responde sozinho: dúvida de voltagem, modelo ou prazo vira consulta interna que trava a negociação.",
-        "Ninguém sabe como está cada negócio: sem critério objetivo, negociação parada parece igual a negociação quente.",
+        "Cada carrossel e cada roteiro nasce do zero, em várias ferramentas diferentes.",
+        "A edição do vídeo consome horas que poderiam virar mais conteúdo publicado.",
+        "Falta um olhar de fora: o que errou na copy, na edição e na estrutura passa sem ser percebido.",
+        "Vídeo vai bem ou mal e ninguém sabe por quê, nem o que virou lead de verdade.",
       ],
     },
     solucao: {
       titulo: "Como passa a ser",
       icone: Lightbulb,
       items: [
-        "Cada interação vira resumo automático, com dores, objeções e próximo passo já registrados.",
-        "O agente de auxílio comercial responde na hora, com o argumento que já funcionou antes.",
-        "Cada negociação recebe uma nota de 0 a 100. A gestão age enquanto o negócio ainda existe.",
+        "Um estúdio único gera carrossel, roteiro e apoia a edição no seu estilo.",
+        "O agente avaliador aponta o que corrigir antes de você postar.",
+        "O Falow automatiza os comentários e mostra o melhor e o pior vídeo.",
+        "O calendário usa esses dados pra decidir o que gravar na semana seguinte.",
       ],
     },
   },
 
   ecossistema: {
-    eyebrow: "OS QUATRO AGENTES",
-    titulo: "Um agente pra cada etapa do comercial",
+    eyebrow: "O QUE ESTÁ INCLUSO",
+    titulo: "Seis peças trabalhando juntas",
     subtitulo:
-      "Todos operam sobre o CRM que a Rainoah já usa. Nenhum sistema novo para o time aprender.",
+      "Tudo dentro do mesmo sistema, com login único. O Falow já vem integrado, sem custo à parte.",
     pilares: [
       {
-        icone: FileText,
-        titulo: "Documentação automática",
-        descricao: "Transforma cada interação em resumo com dores, objeções e próximo passo.",
+        icone: LayoutGrid,
+        titulo: "Produção de carrosséis",
+        descricao: "Estruturas de 7 slides prontas, com gancho, desenvolvimento e CTA.",
       },
       {
-        icone: HelpCircle,
-        titulo: "Auxílio comercial",
-        descricao: "Responde dúvidas de produto e política e sugere argumento de venda na hora.",
+        icone: ScrollText,
+        titulo: "Roteiros de vídeo",
+        descricao: "Roteiro por blocos de tempo, com gancho, prova e chamada pra ação.",
       },
       {
-        icone: TrendingUp,
-        titulo: "Score de negociação",
-        descricao: "Nota de 0 a 100 por negociação, considerando etapas, tempo e qualidade do registro.",
+        icone: Clapperboard,
+        titulo: "Edição de vídeo com IA",
+        descricao: "Cortes de pausa, legendas e cortes de vídeo longo usando Claude e outras IAs.",
       },
       {
-        icone: BarChart3,
-        titulo: "Relatório gerencial",
-        descricao: "Resumo diário do que avançou, travou e precisa de decisão, sem cobrar planilha de ninguém.",
+        icone: Instagram,
+        titulo: "Falow integrado",
+        descricao: "CRM de Instagram, automação de comentários e métricas por vídeo.",
       },
       {
-        icone: Link2,
-        titulo: "Fundação única",
-        descricao: "Tudo roda integrado ao CRM que a Rainoah já usa, sem sistema novo pra aprender.",
+        icone: ClipboardCheck,
+        titulo: "Agente avaliador",
+        descricao: "Revisa copy, edição e estrutura e diz o que melhorar.",
+      },
+      {
+        icone: Anchor,
+        titulo: "Banco de ganchos",
+        descricao: "Biblioteca de ganchos virais consultada na hora de criar.",
       },
     ],
   },
@@ -295,158 +380,191 @@ export const proposta: PropostaConfig = {
   featureTabs: {
     tabs: [
       {
-        label: "DOCUMENTAÇÃO",
-        icone: FileText,
-        titulo: "Documentação automática pra SDRs",
+        label: "CARROSSÉIS",
+        icone: LayoutGrid,
+        titulo: "Carrossel pronto em minutos",
         descricao:
-          "Cada call, cada conversa de lojista e cada negociação de marca própria vira registro, sem depender da memória do vendedor.",
+          "Você dá o tema, o sistema entrega a estrutura completa de 7 slides no seu tom, pronta pra ajustar e postar.",
         itens: [
-          "Resumo objetivo com dores, objeções e próximo passo",
-          "Preenche automaticamente perfil, região e interesse do lead",
-          "Gera follow-up sugerido já escrito, no tom da Rainoah",
-          "Mantém histórico contínuo por conta",
+          "Estrutura de 7 slides com gancho, dor, virada e CTA",
+          "Texto enxuto, pensado pra reter e gerar salvamento",
+          "Variações do mesmo tema pra testar abordagens",
+          "Legenda do post gerada junto",
         ],
-        mockup: <DocMockup />,
+        mockup: <CarrosselMockup />,
       },
       {
-        label: "AUXÍLIO COMERCIAL",
-        icone: HelpCircle,
-        titulo: "Um copiloto pra cada vendedor",
+        label: "ROTEIROS",
+        icone: ScrollText,
+        titulo: "Roteiro de vídeo sem página em branco",
         descricao:
-          "Vendedor novo produz como vendedor antigo, em semanas e não em meses. O agente responde antes que a dúvida trave a negociação.",
+          "Roteiros organizados por tempo, com gancho nos primeiros segundos e fechamento que chama pra ação.",
         itens: [
-          "Responde dúvidas de produto, voltagem, modelo e garantia",
-          "Consulta a política comercial: faixas de desconto e condições",
-          "Sugere argumento de quebra de objeção com base no que já funcionou",
-          "Monta rascunho de proposta e mensagem",
+          "Gancho, desenvolvimento, prova e CTA em blocos de tempo",
+          "Formatos curtos (Reels) e longos (YouTube)",
+          "Texto falado, natural, fácil de gravar",
+          "Ajustes por voz de marca, no seu jeito de falar",
         ],
-        mockup: <AuxilioMockup />,
+        mockup: <RoteiroMockup />,
       },
       {
-        label: "SCORE DE PROCESSO",
-        icone: TrendingUp,
-        titulo: "Uma nota pra cada negociação",
+        label: "EDIÇÃO",
+        icone: Clapperboard,
+        titulo: "Edição assistida por IA",
         descricao:
-          "A gestão passa a agir sobre a negociação enquanto ela ainda existe, não depois que o cliente já sumiu.",
+          "Usamos Claude e outras IAs que você pode explorar para tirar o trabalho pesado da edição.",
         itens: [
-          "Nota de 0 a 100 considerando etapas, tempo de resposta e qualidade do registro",
-          "Aponta etapas puladas: qualificação incompleta, proposta sem diagnóstico",
-          "Sinaliza risco de perda antes do cliente sumir",
-          "Painel de gestão com nota média e ranking por vendedor e região",
+          "Corte automático de pausas e vícios de fala",
+          "Legendas geradas e estilizadas",
+          "Sugestão de cortes e ritmo",
+          "Fluxo de edição documentado pra você repetir",
         ],
-        mockup: <ScoreMockup />,
+        mockup: <EdicaoMockup />,
       },
       {
-        label: "RELATÓRIO GERENCIAL",
-        icone: BarChart3,
-        titulo: "Gestão comercial em cinco minutos por dia",
+        label: "CORTES",
+        icone: Scissors,
+        titulo: "Um vídeo longo vira vários posts",
         descricao:
-          "Resumo diário do que avançou, do que travou e do que precisa de decisão hoje, sem cobrar planilha de ninguém.",
+          "Grave uma vez e publique várias. O sistema localiza os melhores trechos e entrega os cortes legendados.",
         itens: [
-          "Resumo diário: o que avançou, o que travou e o que precisa de decisão",
-          "Destaque das três contas mais críticas do dia",
-          "Fechamento semanal com evolução de nota e desempenho",
-          "Alerta imediato para contas grandes em risco",
+          "Identificação dos trechos com mais potencial",
+          "Cortes verticais prontos pra Reels e Shorts",
+          "Legenda automática em cada corte",
+          "Mais conteúdo sem gravar mais",
         ],
-        mockup: <RelatorioMockup />,
+        mockup: <CortesMockup />,
       },
       {
-        label: "TREINAMENTO",
+        label: "FALOW",
+        icone: MessageCircle,
+        titulo: "Falow integrado ao seu sistema",
+        descricao:
+          "O CRM de Instagram do Falow vem dentro do mesmo login. Automatize comentários de forma mais simples que um ManyChat.",
+        itens: [
+          "Automação de comentário que responde e manda direct sozinha",
+          "CRM de Instagram com os leads organizados",
+          "Métricas de crescimento por automação",
+          "Ranking dos melhores e piores vídeos",
+        ],
+        mockup: <FalowMockup />,
+      },
+      {
+        label: "AVALIADOR",
+        icone: ClipboardCheck,
+        titulo: "Um agente que diz o que você errou",
+        descricao:
+          "Antes de postar, o agente revisa seu conteúdo e aponta com clareza o que melhorar.",
+        itens: [
+          "Avaliação da copy, do gancho e do CTA",
+          "Análise da edição e do ritmo do vídeo",
+          "Revisão da estrutura dos carrosséis de 7 slides",
+          "Nota e lista de melhorias acionáveis",
+        ],
+        mockup: <AvaliadorMockup />,
+      },
+      {
+        label: "GANCHOS",
+        icone: Anchor,
+        titulo: "Banco de ganchos virais",
+        descricao:
+          "Uma biblioteca de ganchos por categoria que os roteiros e carrosséis consultam sozinhos.",
+        itens: [
+          "Ganchos organizados por tipo e objetivo",
+          "Consulta automática ao gerar roteiros",
+          "Você salva os que funcionam pra reutilizar",
+        ],
+        mockup: <GanchosMockup />,
+      },
+      {
+        label: "CALENDÁRIO",
+        icone: CalendarDays,
+        titulo: "Calendário editorial com IA",
+        descricao:
+          "O planejamento da semana nasce dos dados do Falow: o que performou vira pauta, o que não performou sai.",
+        itens: [
+          "Pauta semanal e mensal sugerida",
+          "Mix de formatos entre Reels, carrosséis e stories",
+          "Ciclo fechado: métricas alimentam o próximo conteúdo",
+        ],
+        mockup: <CalendarioMockup />,
+      },
+      {
+        label: "ONBOARDING",
         icone: GraduationCap,
-        titulo: "Dois treinamentos pra destravar o time",
+        titulo: "Você começa a usar sem travar",
         descricao:
-          "Depois da ativação, o time comercial recebe dois treinamentos ao vivo: um pra dominar o sistema, outro pra tirar o máximo dos quatro agentes no dia a dia.",
+          "Aulas gravadas e acompanhamento no começo para o sistema entrar na sua rotina.",
         itens: [
-          "Treinamento 1: uso do sistema e do painel de gestão",
-          "Treinamento 2: como tirar o máximo de cada agente",
-          "Sessões gravadas, disponíveis pro time rever quando quiser",
-          "Espaço aberto pra dúvidas depois da virada de chave",
+          "Aulas gravadas pra rever quando quiser",
+          "Configuração inicial com o seu estilo",
+          "Suporte nos primeiros 30 dias",
         ],
         mockup: <TreinamentoMockup />,
-      },
-      {
-        label: "MANUTENÇÃO",
-        icone: Wrench,
-        titulo: "Manutenção pensada pra evoluir, não só sustentar",
-        descricao:
-          "Todo mês o sistema fica mais rápido e mais afiado. Melhoria entra a partir do feedback real do time comercial, não só quando algo quebra.",
-        itens: [
-          "Melhoria contínua com base no feedback direto dos vendedores",
-          "Otimização de velocidade de resposta e do banco de dados",
-          "Atualização de APIs e integrações sempre que a Rainoah mudar de ferramenta",
-          "Pequenas melhorias e novas funcionalidades dentro do escopo já acordado",
-        ],
-        mockup: <ManutencaoMockup />,
       },
     ],
   },
 
   jornada: {
-    eyebrow: "IMPLEMENTAÇÃO EM 2 MESES",
-    titulo: "Cada etapa entrega algo",
-    tituloDestaque: "funcionando e validado pelo time",
-    subtitulo:
-      "Sem grande virada de chave no fim. Só entrega validada, etapa após etapa.",
+    eyebrow: "IMPLEMENTAÇÃO EM 1 MÊS",
+    titulo: "Do alinhamento ao primeiro conteúdo",
+    tituloDestaque: "rodando no sistema",
+    subtitulo: "Em 1 mês o estúdio está no ar, com entrega por etapas validadas por você.",
     etapas: [
       {
         numero: 1,
         titulo: "Imersão",
         descricao:
-          "Duas sessões pra mapear o funil comercial real, levantamento técnico do CRM e canal de atendimento, e critérios da nota definidos.",
+          "Alinhamos seu nicho, sua voz de marca, seus formatos e o que você quer atingir.",
       },
       {
         numero: 2,
-        titulo: "Fundação",
+        titulo: "Estúdio",
         descricao:
-          "Base de conhecimento treinada em catálogo, política comercial e argumentos, com integração completa ao CRM que a Rainoah já usa.",
+          "Configuração de carrosséis, roteiros, banco de ganchos e fluxo de edição no seu estilo.",
       },
       {
         numero: 3,
-        titulo: "Piloto",
+        titulo: "Falow e avaliador",
         descricao:
-          "Documentação automática e auxílio comercial liberados pra um grupo piloto de vendedores, com ajustes a partir do uso real.",
+          "Integração do Falow, automações de comentário e ativação do agente avaliador.",
       },
       {
         numero: 4,
-        titulo: "Painel completo",
-        descricao:
-          "Score de negociação e relatório gerencial diário entram em operação, com painel de gestão liberado.",
-      },
-      {
-        numero: 5,
         titulo: "Ativação",
         descricao:
-          "Treinamento ao vivo com o time comercial, liberação dos quatro agentes pra operação inteira e acompanhamento diário na primeira semana.",
+          "Aulas gravadas, calendário editorial no ar e acompanhamento nos primeiros 30 dias.",
       },
     ],
   },
 
   investimento: {
-    eyebrow: "O CUSTO DE NÃO TER",
-    titulo: "Antes e depois dos quatro agentes",
-    subtitulo:
-      "O comercial da Rainoah antes de ter registro, copiloto e controle automatizados, e depois.",
+    eyebrow: "ANTES E DEPOIS",
+    titulo: "Sua rotina de conteúdo, com e sem o estúdio",
+    subtitulo: "O que muda quando criação, edição, automação e avaliação ficam no mesmo lugar.",
     cenarioAtual: {
-      titulo: "Cenário Atual",
+      titulo: "Cenário atual",
       label: "HOJE",
-      destaque: "Comercial na memória do vendedor",
-      subtitulo: "Sem registro, sem critério",
+      destaque: "Ferramentas soltas e achismo",
+      subtitulo: "Muito trabalho manual, pouco retorno claro",
       items: [
-        "Histórico de negociação vive só no WhatsApp e na cabeça do vendedor",
-        "Cada dúvida de produto vira consulta interna que trava a venda",
-        "Negociação parada parece igual a negociação quente, sem critério objetivo",
+        "Carrossel e roteiro feitos do zero toda vez",
+        "Horas gastas em edição de vídeo",
+        "Sem avaliação do que errou na copy e na estrutura",
+        "Sem dado do que gera lead de verdade",
       ],
     },
     cenarioFuturo: {
-      titulo: "Cenário Rainoah",
-      label: "COM OS 4 AGENTES",
-      destaque: "Comercial com visibilidade total",
-      subtitulo: "Registro, copiloto e controle automatizados",
+      titulo: "Cenário com o estúdio",
+      label: "COM O SISTEMA",
+      destaque: "Conteúdo guiado por dados",
+      subtitulo: "Criar, editar, automatizar e melhorar no mesmo lugar",
       items: [
-        "Cada interação registrada automaticamente, com próximo passo já definido",
-        "Copiloto comercial responde dúvidas de produto e política na hora",
-        "Nota de 0 a 100 por negociação, direto no painel de gestão",
-        "Relatório gerencial pronto todo dia, sem cobrar planilha de ninguém",
+        "Carrosséis e roteiros prontos no seu tom",
+        "Edição e cortes assistidos por IA",
+        "Agente avaliador revisando antes de postar",
+        "Falow mostrando o melhor e o pior vídeo",
+        "Calendário que se ajusta ao que performa",
       ],
     },
   },
@@ -456,63 +574,137 @@ export const proposta: PropostaConfig = {
     titulo: "Estrutura comercial",
     planos: [
       {
-        eyebrow: "IMPLEMENTAÇÃO",
-        nome: "Setup dos Quatro Agentes",
+        eyebrow: "ESTÚDIO COMPLETO",
+        nome: "Estúdio de Conteúdo com IA",
         descricao:
-          "Mapeamento do processo, construção dos quatro agentes e ativação assistida, em 2 meses.",
-        valor: "R$ 6.997",
-        periodo: "pagamento único",
-        rotuloValor: "implementação completa",
-        itens: [
-          "Mapeamento do processo comercial e construção dos quatro agentes",
-          "Base de conhecimento treinada em catálogo, política e argumentos",
-          "Integração completa com o CRM que a Rainoah já usa",
-          "Painel de gestão com nota por negociação e ranking",
-          "2 treinamentos comerciais ao vivo: uso do sistema e uso dos agentes",
-          "Ativação assistida com acompanhamento diário na primeira semana",
-        ],
-        observacao:
-          "Requer acesso ao CRM, catálogo atualizado, política comercial vigente e cerca de 2h do time comercial nas duas primeiras semanas.",
-      },
-      {
-        eyebrow: "MANUTENÇÃO",
-        nome: "Manutenção Mensal",
-        descricao:
-          "Tudo que mantém os quatro agentes rodando, evoluindo e sempre atualizados.",
-        valor: "R$ 1.799",
-        periodo: "/mês",
-        rotuloValor: "mensalidade fixa",
+          "Sistema completo de criação, edição, automação e avaliação de conteúdo, com Falow incluso.",
+        valor: "R$ 3.790",
+        periodo: "à vista",
+        rotuloValor: "pagamento único, sem mensalidade",
         destaque: true,
+        parcelamento: "12x de R$ 379,00",
         itens: [
-          "Monitoramento e correção de falhas dos quatro agentes",
-          "Atualização de APIs e integrações, incluindo CRM e canal de atendimento",
-          "Melhoria contínua dos agentes com base no feedback direto dos vendedores",
-          "Otimização de velocidade de resposta e do banco de dados",
-          "Atualização da base com produtos, políticas e argumentos novos",
-          "Pequenas melhorias e novas funcionalidades dentro do escopo já acordado",
-          "Canal direto pra dúvidas e demandas, com relatório mensal de uso e desempenho",
+          "Produção de carrosséis de 7 slides com IA",
+          "Produção de roteiros de vídeo",
+          "Edição de vídeo assistida por IA, com cortes e legendas",
+          "Falow integrado: CRM de Instagram, automação de comentários e métricas",
+          "Agente avaliador de copy, edição e estrutura",
+          "Banco de ganchos virais",
+          "Calendário editorial com IA",
+          "Aulas gravadas e suporte nos primeiros 30 dias",
         ],
-        observacao:
-          "Cobre manutenção e evolução dentro do escopo entregue. Funcionalidades fora do escopo original são orçadas à parte.",
+        observacao: "Prazo de entrega: 1 mês. Acesso ao Falow incluso no sistema, sem cobrança à parte.",
       },
     ],
   },
 
   cta: {
     eyebrow: "PRÓXIMO PASSO",
-    titulo: "Bora tirar o comercial",
-    tituloDestaque: "da cabeça do vendedor?",
+    titulo: "Bora criar conteúdo",
+    tituloDestaque: "com mais clareza e menos esforço?",
     descricao:
-      "Proposta com validade de 15 dias. Qualquer ponto do escopo pode ser ajustado antes da assinatura, é só chamar que a gente alinha.",
+      "Proposta com validade de 15 dias. Qualquer ponto do escopo pode ser ajustado antes de fechar, é só chamar que a gente alinha.",
     botaoLabel: "Falar no WhatsApp",
+    pdfLabel: "Baixar o escopo em PDF",
+    pdfLink: "/pdfs/escopo-estudio-vanusa.pdf",
     botaoLink:
-      "https://wa.me/5521991083870?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta.",
+      "https://wa.me/5521991083870?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta%20do%20Est%C3%BAdio%20de%20Conte%C3%BAdo.",
   },
 
   footer: {
     logoSrc: logo,
     siteUrl: "https://methodgrowthhub.com.br",
     siteLabel: "Desenvolvida pela Growth Hub",
-    nota: "Desenvolvido por Method Growth Hub · Tecnologia e automação sob medida para operações comerciais.",
+    nota: "Tecnologia e automação sob medida.",
+  },
+
+  documento: {
+    eyebrow: "ESCOPO E ENTREGÁVEIS",
+    titulo: "Estúdio de Conteúdo com IA",
+    subtitulo: "Vanusa · o que a proposta entrega",
+    intro:
+      "Este documento lista, de forma direta, o que está incluso no Estúdio de Conteúdo com IA. Valores e condições de pagamento estão na proposta.",
+    planos: [
+      {
+        nome: "Estúdio de Conteúdo com IA",
+        prazo: "Entrega em 1 mês",
+        resumo: "Criação, edição, automação e avaliação de conteúdo no mesmo sistema.",
+        grupos: [
+          {
+            titulo: "Carrosséis e roteiros",
+            itens: [
+              "Produção de carrosséis de 7 slides com gancho, dor, virada e CTA",
+              "Variações do mesmo tema e legenda do post gerada junto",
+              "Roteiros de vídeo por blocos de tempo, no seu jeito de falar",
+              "Formatos curtos (Reels) e longos (YouTube)",
+            ],
+          },
+          {
+            titulo: "Edição de vídeo com IA",
+            itens: [
+              "Edição assistida com Claude e outras IAs",
+              "Corte automático de pausas e vícios de fala",
+              "Legendas geradas e estilizadas",
+              "Cortes de vídeo longo em vários posts legendados",
+            ],
+          },
+          {
+            titulo: "Falow integrado",
+            itens: [
+              "Acesso ao Falow dentro do mesmo sistema, com login único",
+              "Automação de comentários que responde e envia direct",
+              "CRM de Instagram com os leads organizados",
+              "Métricas de crescimento e ranking dos melhores e piores vídeos",
+            ],
+          },
+          {
+            titulo: "Agente avaliador",
+            itens: [
+              "Avaliação da copy, do gancho e do CTA",
+              "Análise da edição e do ritmo do vídeo",
+              "Revisão da estrutura dos carrosséis de 7 slides",
+              "Nota e lista de melhorias acionáveis",
+            ],
+          },
+          {
+            titulo: "Banco de ganchos virais",
+            itens: [
+              "Biblioteca de ganchos organizada por tipo e objetivo",
+              "Consulta automática ao gerar roteiros e carrosséis",
+            ],
+          },
+          {
+            titulo: "Calendário editorial com IA",
+            itens: [
+              "Pauta semanal e mensal sugerida",
+              "Planejamento baseado no desempenho medido no Falow",
+            ],
+          },
+        ],
+      },
+    ],
+    blocos: [
+      {
+        titulo: "Entrega",
+        itens: [
+          "Implementação em 1 mês, por etapas",
+          "Aulas gravadas de onboarding",
+          "Suporte nos primeiros 30 dias",
+        ],
+      },
+      {
+        titulo: "Acesso",
+        itens: [
+          "Login único para o estúdio e o Falow",
+          "Falow incluso, sem cobrança à parte",
+        ],
+      },
+      {
+        titulo: "Investimento",
+        itens: ["R$ 3.790 à vista ou 12x de R$ 379,00", "Pagamento único, sem mensalidade"],
+      },
+    ],
+    rodape: "Desenvolvida pela Growth Hub · methodgrowthhub.com.br",
+    arquivo: "escopo-estudio-vanusa",
   },
 };
