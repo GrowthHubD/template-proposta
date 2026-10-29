@@ -126,6 +126,31 @@ export interface FooterData {
   nota?: string;
 }
 
+export interface DocumentoGrupo {
+  titulo: string;
+  itens: string[];
+}
+
+export interface DocumentoPlano {
+  nome: string;
+  prazo: string;
+  /** Linha curta sob o nome (ex: "Inclui tudo do Essencial, mais:"). */
+  resumo: string;
+  grupos: DocumentoGrupo[];
+}
+
+export interface DocumentoData {
+  eyebrow: string;
+  titulo: string;
+  subtitulo: string;
+  intro: string;
+  planos: DocumentoPlano[];
+  blocos: DocumentoGrupo[];
+  rodape: string;
+  /** Nome do arquivo gerado em public/pdfs (sem .pdf), usado pelo script de geração. */
+  arquivo: string;
+}
+
 export interface PropostaConfig {
   hero: HeroData;
   marquee: MarqueeData;

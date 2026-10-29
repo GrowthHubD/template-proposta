@@ -84,12 +84,12 @@ npm run dev     # abrir e percorrer em 375 / 768 / 1440
 ```
 Rode também `grep -r "\[" src/modules/proposta/data/` — não pode sobrar placeholder. E `grep "—" src/modules/proposta/data/proposta.config.tsx` — deve ser zero (proibido travessão).
 
-### Botão "Baixar PDF"
-Toda proposta entrega o botão Baixar PDF no CTA. Depois de publicar a proposta, gere o arquivo e aponte o config para ele:
-```bash
-npm run pdf -- https://proposta-<cliente>.methodgrowthhub.com.br public/pdfs/proposta-<cliente>.pdf
-```
-No `proposta.config.tsx`, em `cta`: `pdfLink: "/pdfs/proposta-<cliente>.pdf"` (e `pdfLabel` opcional). Rebuild e redeploy depois de gerar o PDF. O script captura a página renderizada (o modo de impressão do Chromium quebra as seções de tela cheia).
+### Botão "Baixar PDF" (documento de escopo)
+Toda proposta entrega o PDF no padrão Growth/SHOKS: um **documento de escopo em A4, fundo claro**, texto corrido, sem apelo comercial. Ele sai do mesmo config do site:
+1. Preencha o bloco `documento` em `proposta.config.tsx` (eyebrow, título, intro, `planos` com `grupos` de itens, `blocos` finais, rodapé e `arquivo`, o nome do PDF sem `.pdf`).
+2. Em `cta`, aponte o botão: `pdfLink: "/pdfs/<arquivo>.pdf"` e `pdfLabel: "Baixar o escopo em PDF"`.
+3. Gere o arquivo com `npm run pdf`. O script sobe o Vite, abre a rota `/documento` no Chrome instalado (`playwright-core`) e imprime em A4 com paginação no rodapé. Saída em `public/pdfs/<arquivo>.pdf`.
+4. Rebuild e redeploy. Não use captura de tela da landing como PDF.
 
 ### 6. Entregue
 Diga ao usuário a URL local (`http://localhost:8080`) e o que mudou. Se ele pedir deploy, veja a seção "Deploy" abaixo.

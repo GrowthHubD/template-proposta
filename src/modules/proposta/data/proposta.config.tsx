@@ -505,6 +505,8 @@ export const proposta: PropostaConfig = {
     descricao:
       "Proposta com validade de 15 dias. Qualquer ponto do escopo pode ser ajustado antes da assinatura, é só chamar que a gente alinha.",
     botaoLabel: "Falar no WhatsApp",
+    pdfLabel: "Baixar o escopo em PDF",
+    pdfLink: "/pdfs/escopo-exemplo.pdf",
     botaoLink:
       "https://wa.me/5521991083870?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta.",
   },
@@ -514,5 +516,31 @@ export const proposta: PropostaConfig = {
     siteUrl: "https://methodgrowthhub.com.br",
     siteLabel: "Desenvolvida pela Growth Hub",
     nota: "Desenvolvido por Method Growth Hub · Tecnologia e automação sob medida para operações comerciais.",
+  },
+
+  documento: {
+    eyebrow: "ESCOPO E ENTREGÁVEIS",
+    titulo: "Título do projeto",
+    subtitulo: "Nome do cliente · o que a proposta entrega",
+    intro:
+      "Este documento lista, de forma direta, o que está incluso na proposta. Valores e condições de pagamento estão na proposta.",
+    planos: [
+      {
+        nome: "Nome do plano",
+        prazo: "Entrega em até 30 dias",
+        resumo: "Uma linha curta sobre o plano.",
+        grupos: [
+          { titulo: "Grupo de entregáveis", itens: ["Item 1", "Item 2"] },
+          { titulo: "Outro grupo", itens: ["Item 1", "Item 2"] },
+        ],
+      },
+    ],
+    blocos: [
+      { titulo: "Entrega", itens: ["Prazo e etapas"] },
+      { titulo: "Acesso", itens: ["Como o cliente acessa"] },
+      { titulo: "Investimento", itens: ["Valor e forma de pagamento"] },
+    ],
+    rodape: "Desenvolvida pela Growth Hub · methodgrowthhub.com.br",
+    arquivo: "escopo-exemplo",
   },
 };
