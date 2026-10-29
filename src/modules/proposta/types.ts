@@ -114,6 +114,9 @@ export interface CTAData {
   descricao: string;
   botaoLabel: string;
   botaoLink?: string;
+  /** Caminho do PDF (ex: /pdfs/proposta-cliente.pdf). Se vier, mostra o botão Baixar PDF. */
+  pdfLink?: string;
+  pdfLabel?: string;
 }
 
 export interface FooterData {

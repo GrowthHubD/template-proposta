@@ -84,6 +84,13 @@ npm run dev     # abrir e percorrer em 375 / 768 / 1440
 ```
 Rode também `grep -r "\[" src/modules/proposta/data/` — não pode sobrar placeholder. E `grep "—" src/modules/proposta/data/proposta.config.tsx` — deve ser zero (proibido travessão).
 
+### Botão "Baixar PDF"
+Toda proposta entrega o botão Baixar PDF no CTA. Depois de publicar a proposta, gere o arquivo e aponte o config para ele:
+```bash
+npm run pdf -- https://proposta-<cliente>.methodgrowthhub.com.br public/pdfs/proposta-<cliente>.pdf
+```
+No `proposta.config.tsx`, em `cta`: `pdfLink: "/pdfs/proposta-<cliente>.pdf"` (e `pdfLabel` opcional). Rebuild e redeploy depois de gerar o PDF. O script captura a página renderizada (o modo de impressão do Chromium quebra as seções de tela cheia).
+
 ### 6. Entregue
 Diga ao usuário a URL local (`http://localhost:8080`) e o que mudou. Se ele pedir deploy, veja a seção "Deploy" abaixo.
 
