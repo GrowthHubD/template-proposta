@@ -11,8 +11,13 @@ import {
   GraduationCap,
   Video,
   Wrench,
+  ShieldOff,
+  PhoneCall,
+  Zap,
 } from "lucide-react";
 import logo from "@/assets/logo-growthhub.png";
+import metaLogo from "@/assets/meta-logo.svg";
+import falowLogo from "@/assets/falow-logo.webp";
 import type { PropostaConfig } from "../types";
 
 /**
@@ -288,6 +293,75 @@ export const proposta: PropostaConfig = {
         icone: Link2,
         titulo: "Fundação única",
         descricao: "Tudo roda integrado ao CRM que a Rainoah já usa, sem sistema novo pra aprender.",
+      },
+    ],
+  },
+
+  // OBRIGATÓRIO em toda proposta (regra Growth Hub). Aparência padrão: não trocar o componente.
+  techProvider: {
+    eyebrow: "PARCEIRO OFICIAL META",
+    titulo: "Somos Tech Provider da Meta,",
+    tituloDestaque: "a tecnologia é nossa",
+    descricao:
+      "Como Tech Provider do WhatsApp, a Growth Hub constrói, opera e dá suporte à estrutura de mensagens diretamente. Sem depender de terceiros.",
+    seloLogoSrc: metaLogo,
+    seloTitulo: "Tech Provider",
+    seloSubtitulo: "Meta · WhatsApp",
+    beneficios: [
+      {
+        icone: ShieldOff,
+        titulo: "Sem risco de banimento",
+        descricao: "API oficial: sem ferramentas não oficiais e sem risco para o número da empresa.",
+      },
+      {
+        icone: PhoneCall,
+        titulo: "Números importantes protegidos",
+        descricao: "Evita perder uma linha de contacto que clientes e fornecedores já conhecem.",
+      },
+      {
+        icone: Zap,
+        titulo: "Um só responsável",
+        descricao: "O provedor da tecnologia é a própria equipe que atende o cliente, do sistema ao suporte.",
+      },
+    ],
+  },
+
+  // Extras e futuro da parceria. Tech Provider e Falow entram por padrão.
+  // Máquina de Edição com IA SÓ entra se o usuário pedir: tratar como ecossistema/resultado
+  // do Matheus (sem link, sem "curso"). Logo em src/assets/maquina-edicao-logo.webp (copiar
+  // da proposta-renan-leadvinicius).
+  extras: {
+    eyebrow: "EXTRAS E FUTURO DA PARCERIA",
+    titulo: "O que já vem junto",
+    tituloDestaque: "e o que a parceria pode abrir",
+    subtitulo: "Além do escopo, o cliente entra num ecossistema de ferramentas que a Growth Hub constrói e usa todos os dias.",
+    itens: [
+      {
+        tag: "Incluso",
+        titulo: "Tech Provider incluído",
+        descricao: "A estrutura de WhatsApp roda na API oficial da Meta, operada diretamente pela nossa equipe.",
+        logoSrc: metaLogo,
+        logoAlt: "Meta",
+        logoFundoClaro: true,
+        pontos: [
+          "Sem intermediário entre a empresa e a Meta",
+          "Mais segurança: sem risco de banimento",
+          "Um só responsável, do sistema ao suporte",
+        ],
+      },
+      {
+        tag: "Ecossistema",
+        titulo: "Falow, o app de automação do Instagram",
+        descricao:
+          "Software de automação conversacional que a Growth Hub construiu e usa no dia a dia. O Instagram responde sozinho, sem perder o toque humano.",
+        logoSrc: falowLogo,
+        logoAlt: "Falow",
+        pontos: [
+          "Responde DMs e comentários de posts e Reels a partir de palavras-chave",
+          "Fluxos visuais e caixa de conversas ao vivo, com opção de assumir o atendimento",
+          "Etiquetas, funil e contatos organizados em um só lugar",
+          "6.000 DMs automáticas enviadas em um único mês de uso",
+        ],
       },
     ],
   },

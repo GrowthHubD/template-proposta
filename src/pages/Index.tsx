@@ -3,8 +3,10 @@ import {
   MarqueeTicker,
   MomentoAtualSection,
   EcossistemaSection,
+  TechProviderSection,
   FeatureTabsSection,
   JornadaSection,
+  ExtrasSection,
   InvestimentoSection,
   PrecosSection,
   CTASection,
@@ -23,9 +25,13 @@ const Index = () => {
 
       <EcossistemaSection data={proposta.ecossistema} />
 
+      {proposta.techProvider && <TechProviderSection data={proposta.techProvider} />}
+
       <FeatureTabsSection data={proposta.featureTabs} />
 
       <JornadaSection data={proposta.jornada} />
+
+      {proposta.extras && <ExtrasSection data={proposta.extras} />}
 
       <MarqueeTicker data={proposta.marquee} reverse />
 

@@ -114,6 +114,10 @@ Diga ao usuário a URL local (`http://localhost:8080`) e o que mudou. Se ele ped
 
 7. **Proibido travessão `—`** em qualquer copy da proposta. Use vírgula, dois pontos ou ponto. Justificativa e detalhe em `docs/copy-pt-br.md`.
 
+8. **Selo Tech Provider da Meta é obrigatório em toda proposta.** O bloco `techProvider` (seção `TechProviderSection`, selo com borda giratória e logo `src/assets/meta-logo.svg` via `seloLogoSrc`) é o padrão visual: não remover, não redesenhar o símbolo. Referência: workspace `Proposta-renan-leadvinicius`.
+
+9. **Seção `extras` ("Extras e futuro da parceria")**: Tech Provider e Falow entram por padrão. A **Máquina de Edição com IA** só entra se o usuário pedir, e nunca como curso à venda: sem link de redirecionamento, tratada como ecossistema e resultado do Matheus (edição automática e roteirização, +12 formatos, +6 tipos de edição, +50 mil seguidores no Instagram, +10 mil inscritos no YouTube), com a mensagem de que a Growth Hub pode fornecer isso à empresa. Logo em `maquina-edicao-logo.webp` (copiar da `Proposta-renan-leadvinicius`).
+
 ---
 
 ## Customização visual

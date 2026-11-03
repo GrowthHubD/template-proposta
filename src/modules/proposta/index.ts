@@ -2,6 +2,8 @@ export { HeroSection } from "./components/HeroSection";
 export { MarqueeTicker } from "./components/MarqueeTicker";
 export { MomentoAtualSection } from "./components/MomentoAtualSection";
 export { EcossistemaSection } from "./components/EcossistemaSection";
+export { TechProviderSection } from "./components/TechProviderSection";
+export { ExtrasSection } from "./components/ExtrasSection";
 export { FeatureTabsSection } from "./components/FeatureTabsSection";
 export { JornadaSection } from "./components/JornadaSection";
 export { InvestimentoSection } from "./components/InvestimentoSection";

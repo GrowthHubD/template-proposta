@@ -71,6 +71,50 @@ export interface JornadaData {
   etapas: JornadaEtapa[];
 }
 
+export interface TechProviderBeneficio {
+  icone: IconComponent;
+  titulo: string;
+  descricao: string;
+}
+
+export interface TechProviderData {
+  eyebrow?: string;
+  titulo: string;
+  tituloDestaque?: string;
+  descricao: string;
+  /** Logo da Meta exibido dentro do selo desenhado (SVG). */
+  seloLogoSrc?: string;
+  /** Imagem do selo oficial (opcional). */
+  seloSrc?: string;
+  seloAlt?: string;
+  seloTitulo: string;
+  seloSubtitulo?: string;
+  beneficios: TechProviderBeneficio[];
+  nota?: string;
+}
+
+export interface ExtrasItem {
+  tag: string;
+  /** true = ainda não incluso, evolução futura (muda o visual da tag). */
+  futuro?: boolean;
+  titulo: string;
+  descricao: string;
+  logoSrc: string;
+  logoAlt: string;
+  /** Logo escuro que precisa de pílula branca atrás. */
+  logoFundoClaro?: boolean;
+  pontos: string[];
+  link?: { label: string; href: string };
+}
+
+export interface ExtrasData {
+  eyebrow?: string;
+  titulo: string;
+  tituloDestaque?: string;
+  subtitulo?: string;
+  itens: ExtrasItem[];
+}
+
 export interface InvestimentoBloco {
   titulo: string;
   label: string;
@@ -158,6 +202,8 @@ export interface PropostaConfig {
   ecossistema: EcossistemaData;
   featureTabs: FeatureTabsData;
   jornada: JornadaData;
+  techProvider?: TechProviderData;
+  extras?: ExtrasData;
   investimento?: InvestimentoData;
   precos: PrecosData;
   cta: CTAData;
